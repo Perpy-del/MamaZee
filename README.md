@@ -1,7 +1,7 @@
 ![Screenshot of MamaZee Logo](./public/mzee.jpg)
 # MamaZee E-Commerce Hair Store
 
-MamaZee Hair Store aims to create a new solution for natural hair breakage, natural hair stunted growth whilst maintaining a healthy, clean and beautiful looking hair. This store contains products such as hair oils, hair cream, hair accessories and so many more products solely for making the hair shine through.
+MamaZee Hair Store aims to create a new solution for natural hair breakage, and natural hair stunted growth whilst maintaining healthy, clean and beautiful-looking hair. This store contains products such as hair oils, hair cream, hair accessories and so many more products solely for making the hair shine through.
 
 ## Table of Contents
 
@@ -20,10 +20,6 @@ MamaZee Hair Store aims to create a new solution for natural hair breakage, natu
     ```bash
     yarn install
     ```
-
-## Dependencies
-
-## Dev-Dependencies
 
 ## Usage
 
