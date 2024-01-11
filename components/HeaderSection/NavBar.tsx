@@ -1,9 +1,9 @@
 'use client';
 
 import * as React from 'react';
-import MobileNavBar from './MobileNavBar';
-import DesktopNavBar from './DesktopNavBar';
-import NavLogo from './NavLogo';
+import MobileNavBar from './NavBarComponents/MobileNavBar';
+import DesktopNavBar from './NavBarComponents/DesktopNavBar';
+import NavLogo from './NavBarComponents/NavLogo';
 
 type Props = {};
 
