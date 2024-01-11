@@ -1,6 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
 import { XCircle } from 'lucide-react';
+import NavLogo from './NavLogo';
 
 type MenuCloseIconProps = {
   showNav: boolean;
@@ -44,15 +44,7 @@ const MenuCloseIcon = ({ showNav, setShowNav }: MenuCloseIconProps) => {
             <span className="w-full rounded-2xl h-[2px] bg-mzGold inline-flex transform group-hover:translate-x-3 transition-all ease-in-out duration-300"></span>
           </div>
         )}
-        <a href="/">
-          <Image
-            src="/mz_black.svg"
-            alt="logo"
-            width={150}
-            height={72}
-            className="sm:w-[50%] smd:w-[75%] md:w-[90%] lg:w-[100%]"
-          />
-        </a>
+        <NavLogo />
       </div>
     </>
   );
