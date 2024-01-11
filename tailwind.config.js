@@ -13,8 +13,30 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        'sm': '320px',
+        'smd': '425px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1550px'
       },
+    },
+    screens: {
+      'sm': '320px',
+      'smd': '425px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1550px'
+    },
+    colors: {
+      'mzBlack': '#0D0D0D',
+      'mzGold': '#BE8C04',
+      'mzLight': '#FFFFFF',
+      'mzTextLight': '#EEEEEE',
+      'mzProdLight': '##D9D9E0',
+      'mzTextBlack': '#232324',
+      'mzTextFooter': '#232324'
     },
     extend: {
       colors: {
