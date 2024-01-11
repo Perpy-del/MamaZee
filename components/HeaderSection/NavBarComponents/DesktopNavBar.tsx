@@ -2,13 +2,17 @@ import React from 'react';
 import { navData } from './data';
 import { IoMdCart } from 'react-icons/io';
 import Link from 'next/link';
+import NavLogo from './NavLogo';
 
 type Props = {};
 
 const DesktopNavBar = (props: Props) => {
   return (
-    <>
+    <div className="pt-[15px] sm:px-[10px] flex justify-between">
       {/* DESKTOP */}
+      <div className='sm:hidden md:flex'>
+      <NavLogo />
+      </div>
       <div className="md:flex md:gap-5 lg:gap-10 items-center sm:hidden">
         {navData.map((data: any, index: number) => (
           <a href={data.link} target="_blank" key={index}>
@@ -30,7 +34,7 @@ const DesktopNavBar = (props: Props) => {
           </h4>
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 
