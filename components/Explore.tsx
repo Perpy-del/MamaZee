@@ -4,7 +4,7 @@ type Props = {}
 
 const Explore = (props: Props) => {
   return (
-    <div>Explore</div>
+    <div className='px-[80px] pt-[50px] pb-[80px]'>Explore</div>
   )
 }
 
