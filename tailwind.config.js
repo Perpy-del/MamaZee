@@ -13,18 +13,22 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
-        'sm': '320px',
+        'sm': '280px',
         'smd': '425px',
+        'mdl': '600px',
         'md': '768px',
+        'mdg': '900px',
         'lg': '1024px',
         'xl': '1280px',
         '2xl': '1550px'
       },
     },
     screens: {
-      'sm': '320px',
+      'sm': '280px',
       'smd': '425px',
+      'mdl': '600px',
       'md': '768px',
+      'mdg': '900px',
       'lg': '1024px',
       'xl': '1280px',
       '2xl': '1550px'
