@@ -8,7 +8,7 @@ type Props = {};
 
 const DesktopNavBar = (props: Props) => {
   return (
-    <div className="pt-[15px] sm:px-[10px] flex justify-between md:pr-[80px]">
+    <div className="pt-[15px] sm:px-[10px] flex justify-between md:pr-[60px]">
       {/* DESKTOP */}
       <div className="sm:hidden md:flex 2xl:ml-[80px]">
         <NavLogo />

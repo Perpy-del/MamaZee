@@ -23,7 +23,7 @@ const HeroSection = (props: Props) => {
   )
 
   return (
-    <div className="pl-[15px] flex sm:flex-col sm:pt-[85px] sm:gap-10 sm:justify-between sm:px-[20px] md:flex-row md:gap-5 md:items-center md:justify-between md:mr-[50px] lg:pt-[60px] xl:gap-5 xl:pt-[70px] 2xl:pl-[200px] 2xl:gap-0 2xl:pr-[300px] 2xl:pt-[40px] 2xl:justify-around">
+    <div className="pl-[15px] flex sm:flex-col sm:pt-[85px] sm:gap-10 sm:justify-between sm:px-[20px] md:flex-row md:gap-5 md:items-center md:justify-between md:mr-[40px] lg:pt-[60px] xl:gap-5 xl:pt-[70px] 2xl:pl-[200px] mdg:pt-[40px] 2xl:gap-0 2xl:pr-[300px] 2xl:pt-[40px] 2xl:justify-around mdl:items-center">
       <div className="flex sm:flex-col gap-5 sm:items-center sm:pb-[40px] md:items-start 2xl:gap-10">
         <h1 className="sm:text-[30px] leading-tight font-[800] sm:text-center sm:w-[90%] md:text-left md:text-[25px] lg:text-[36px] xl:text-[50px] xl:w-[80%]">
           Gorgeous Hair is the best Revenge
@@ -39,7 +39,7 @@ const HeroSection = (props: Props) => {
       <div className='border-mzBlack sm:ml-[-10px] sm:mr-[-1px] md:mr-[50px] xl:mr-[60px]'>
         <Carousel
           plugins={[plugin.current]}
-          className="w-full md:max-w-[550px] 2xl:max-w-[700px]"
+          className="w-full md:max-w-[550px] 2xl:max-w-[700px] mdl:max-w-[500px]"
           // onMouseEnter={plugin.current.stop}
           // onMouseLeave={plugin.current.reset}
         >
