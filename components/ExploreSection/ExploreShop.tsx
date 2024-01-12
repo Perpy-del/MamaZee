@@ -16,7 +16,7 @@ const ExploreShop = (props: Props) => {
         {exploreCards.map((card, index) => {
           return (
             <div key={index} className='flex flex-col'>
-              <div className='w-[270px] h-[400px]'>
+              <div className='w-[270px] h-[400px] transform duration-500 ease-in-out cursor-pointer hover:scale-105'>
               <Image
                 src={card.cardImage}
                 alt="product_cards"
