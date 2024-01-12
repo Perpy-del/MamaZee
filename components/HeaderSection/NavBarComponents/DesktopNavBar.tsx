@@ -8,12 +8,12 @@ type Props = {};
 
 const DesktopNavBar = (props: Props) => {
   return (
-    <div className="pt-[15px] sm:px-[10px] flex justify-between">
+    <div className="pt-[15px] sm:px-[10px] flex justify-between md:pr-[60px]">
       {/* DESKTOP */}
-      <div className="sm:hidden md:flex">
+      <div className="sm:hidden md:flex 2xl:ml-[80px]">
         <NavLogo />
       </div>
-      <div className="md:flex md:gap-5 lg:gap-10 items-center sm:hidden">
+      <div className="md:flex md:gap-5 lg:gap-10 items-center sm:hidden 2xl:mr-[200px]">
         {navData.map((data: any, index: number) => (
           <a href={data.link} target="_blank" key={index}>
             <span className="flex relative h-7 overflow-x-hidden group">
