@@ -39,15 +39,15 @@ const HeroSection = (props: Props) => {
       <div className='border-mzBlack'>
         <Carousel
           plugins={[plugin.current]}
-          className="w-full max-w-[450px] mr-8 ml-5 -mt-10 border-mzBlack"
+          className="w-full max-w-[470px] mr-8 ml-5 -mt-10 border-mzBlack"
           // onMouseEnter={plugin.current.stop}
           // onMouseLeave={plugin.current.reset}
         >
-          <CarouselContent className='border-mzBlack'>
+          <CarouselContent className='border-mzBlack bg-mzBlack'>
             {carouselImages.map((carousel, index) => (
-              <CarouselItem key={index} className='border-mzBlack'>
-                <div className="p-1 border-mzBlack">
-                  <Card className='border-mzBlack'>
+              <CarouselItem key={index} className='border-mzBlack bg-mzBlack'>
+                <div className="p-1 border-mzBlack bg-mzBlack">
+                  <Card className='border-mzBlack bg-mzBlack'>
                     <CardContent className="flex aspect-square items-center justify-center object-fill bg-mzBlack">
                       <span className="text-4xl font-semibold border-mzBlack">
                         <img alt='carousel_image' src={carousel.image} className='border-mzBlack' />                        
