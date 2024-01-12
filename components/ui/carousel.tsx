@@ -160,7 +160,7 @@ const CarouselContent = React.forwardRef<
         ref={ref}
         className={cn(
           "flex ",
-          orientation === "horizontal" ? "" : "-mt-4 flex-col",
+          orientation === "horizontal" ? "-mr-4" : "-mt-4 flex-col",
           className
         )}
         {...props}
@@ -183,7 +183,7 @@ const CarouselItem = React.forwardRef<
       aria-roledescription="slide"
       className={cn(
         "min-w-0 shrink-0 grow-0 basis-full",
-        orientation === "horizontal" ? "pl-4" : "pt-4",
+        orientation === "horizontal" ? "pr-2 px-4" : "pt-4",
         className
       )}
       {...props}
@@ -214,7 +214,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeftCircle className=" text-mzGold" />
+      <ArrowLeftCircle className=" text-mzGold size-[15px]" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -243,7 +243,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRightCircle className=" text-mzGold" />
+      <ArrowRightCircle className=" text-mzGold size-[15px]" />
       <span className="sr-only">Next slide</span>
     </Button>
   )
