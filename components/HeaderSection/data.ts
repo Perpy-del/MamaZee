@@ -12,3 +12,15 @@ export const navData = [
         link: "/about"
     },
 ]
+
+export const carouselImages = [
+    {
+        image: '/mzmodel_one.svg'
+    },
+    {
+        image: '/mzmodel_two.svg'
+    },
+    {
+        image: '/mzmodel_three.svg'
+    }
+]

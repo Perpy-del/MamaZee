@@ -1,7 +1,7 @@
 import React from 'react';
 import { MoveRight } from 'lucide-react';
 import Link from 'next/link';
-import { navData } from './data';
+import { navData } from '../data';
 import { IoMdCart } from 'react-icons/io';
 import MenuCloseIcon from './LeftSideNav';
 
