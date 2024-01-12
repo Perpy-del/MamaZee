@@ -8,20 +8,12 @@ type MenuCloseIconProps = {
 };
 
 const MenuCloseIcon = ({ showNav, setShowNav }: MenuCloseIconProps) => {
-  const ref = React.useRef<string | any>('');
-
   const handleNavMenuClicked = () => {
     setShowNav(true);
   };
 
   const handleCloseButtonClicked = () => {
     setShowNav(false);
-  };
-
-  const handleClick = (e: any) => {
-    if (e.target.contains(ref.current)) {
-      setShowNav(false);
-    }
   };
 
   return (

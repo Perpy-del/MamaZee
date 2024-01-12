@@ -18,13 +18,14 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        mzcolor: "bg-mzGold text-mzLight hover:bg-[]"
+        mzvariant: "bg-mzGold font-bold text-mzLight hover:bg-[#daab2d]"
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 rounded-md px-3",
         lg: "h-11 rounded-md px-8",
         icon: "h-10 w-10",
+        mzsize: "h-[45px] rounded px-10 py-2 w-[146px]"
       },
     },
     defaultVariants: {
