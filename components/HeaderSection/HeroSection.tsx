@@ -13,7 +13,6 @@ import {
 } from '@/components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay"
 import { carouselImages } from './data';
-import Image from 'next/image';
 
 type Props = {};
 
@@ -40,8 +39,6 @@ const HeroSection = (props: Props) => {
         <Carousel
           plugins={[plugin.current]}
           className="w-full max-w-[470px] mr-8 ml-5 -mt-10 border-mzBlack"
-          // onMouseEnter={plugin.current.stop}
-          // onMouseLeave={plugin.current.reset}
         >
           <CarouselContent className='border-mzBlack bg-mzBlack'>
             {carouselImages.map((carousel, index) => (
