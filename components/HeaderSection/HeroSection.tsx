@@ -13,7 +13,6 @@ import {
 } from '@/components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay"
 import { carouselImages } from './data';
-import Image from 'next/image';
 
 type Props = {};
 
