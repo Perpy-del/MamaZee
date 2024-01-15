@@ -6,7 +6,7 @@ type Props = {}
 
 const Explore = (props: Props) => {
   return (
-    <div className='px-[80px] pt-[50px] pb-[80px]'>
+    <div className='md:px-[80px] lg:px-[60px] pt-[50px] pb-[80px] sm:px-[20px] mdg:px-[30px]'>
       <ExploreShop />
       <ExploreTreatment />
     </div>
