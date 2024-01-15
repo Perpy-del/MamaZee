@@ -22,7 +22,9 @@ const config: Config = {
       'mdg': '900px',
       'lg': '1024px',
       'xl': '1280px',
-      '2xl': '1550px'
+      'xxl': '1440px',
+      '2xl': '1550px',
+      '3xl': '2560px',
     },
     colors: {
       'mzBlack': '#0D0D0D',
