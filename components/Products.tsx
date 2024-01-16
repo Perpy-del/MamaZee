@@ -6,7 +6,7 @@ type Props = {}
 
 const Products = (props: Props) => {
   return (
-    <div className='bg-mzBlack px-[80px] lg:px-[80px] 2xl:px-[200px] sm:px-[20px] py-[100px]'>
+    <div className='bg-mzBlack px-[80px] lg:px-[80px] 2xl:px-[200px] sm:px-[20px] mdl:px-[60px] md:px-[80px] py-[100px]'>
       <ProductShop />
       <ProductCarousel />
     </div>

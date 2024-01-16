@@ -38,25 +38,25 @@ const ProductCarousel = (props: Props) => {
           Hair products crafted for the best hair results
         </h3>
       </div>
-      <div className="flex flex-col gap-5 pb-[20px] px-[30px] items-center">
+      <div className="flex flex-col gap-5 pb-[20px] xl:px-[30px] sm:px-0 items-center sml:px-[20px] md:px-0 mdl:px-[50px]">
         <div className="flex">
           {productCarousel.map((product, index) => {
             return (
-              <div key={index} className={`${currentIndex === index ? 'flex' : 'hidden'} justify-center h-full`}>
-                <div className="w-[45%]">
-                  <img src={product.productImage} alt="Image" />
+              <div key={index} className={`${currentIndex === index ? 'flex flex-wrap' : 'hidden'} justify-center h-full w-full`}>
+                <div className="sm:w-[100%] xl:w-[50%] md:w-[60%] xxl:w-[40%] 3xl:w-[25%] md:rounded-l mdl:w-[80%] lg:w-[50%]">
+                  <img src={product.productImage} alt="Image" className='md:rounded-l' />
                 </div>
-                <div className="w-[45%] bg-mzLight px-[40px] py-[50px] flex flex-col gap-5 rounded-r">
-                  <h1 className="text-mzBlack text-[25px] font-[600]">
+                <div className="sm:w-[100%] xl:w-[50%] xxl:w-[40%] md:w-[60%] 3xl:w-[50%] bg-mzLight xl:px-[40px] xxl:py-[30px] 3xl:px-[60px] 3xl:py-[50px] mdl:w-[80%] xl:py-[50px] sm:pt-[10px] sm:px-[20px] sm:pb-[40px] mdl:p-[20px] flex flex-col lg:gap-5 md:p-[20px] sm:gap-2 sm:rounded-b mdg:rounded-r lg:w-[50%] lg:p-[30px]">
+                  <h1 className="text-mzBlack xl:text-[25px] sm:text-[20px] font-[600] 3xl:text-[40px] mdl:text-[18px]">
                     {product.productName}
                   </h1>
-                  <h3 className="text-mzTextBlack text-[14px]">
+                  <h3 className="text-mzTextBlack lg:text-[14px] sm:text-justify sm:text-[13px] md:text-[12px] xl:text-[16px] 3xl:text-[24px] 3xl:w-[95%]">
                     {product.productDesc}
                   </h3>
                   <Button
                     variant="mzvariant"
                     size="mzsize"
-                    className="mt-[40px]"
+                    className="xl:mt-[40px] sm:mt-[10px] 3xl:text-[18px] 3xl:mt-[20px]"
                   >
                     Shop now
                   </Button>
