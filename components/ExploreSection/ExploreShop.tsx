@@ -18,10 +18,10 @@ const ExploreShop = (props: Props) => {
   return (
     <>
       <div className="md:pb-[30px] sm:pb-[45px] text-center">
-        <h1 className="text-[30px] font-bold sm:text-[24px] 3xl:text-[45px]">
+        <h1 className="lg:text-[30px] font-bold sm:text-[24px] 3xl:text-[45px]">
           Explore our store
         </h1>
-        <h4 className="sm:text-[14px] 3xl:text-[24px]">
+        <h4 className="sm:text-[14px] 3xl:text-[24px] lg:text-[16px]">
           Hair products crafted for the best hair results
         </h4>
       </div>

@@ -27,6 +27,7 @@ module.exports = {
     },
     screens: {
       sm: '280px',
+      sml: '320px',
       smd: '425px',
       mdl: '600px',
       md: '768px',
@@ -42,7 +43,7 @@ module.exports = {
       mzGold: '#BE8C04',
       mzLight: '#FFFFFF',
       mzTextLight: '#EEEEEE',
-      mzProdLight: '##D9D9E0',
+      mzProdLight: '#D9D9E0',
       mzTextBlack: '#232324',
       mzTextFooter: '#232324',
     },
