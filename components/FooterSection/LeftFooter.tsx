@@ -10,11 +10,11 @@ type Props = {};
 
 const LeftFooter = (props: Props) => {
   return (
-    <div className="text-mzTextFooter w-[300px]">
+    <div className="text-mzTextFooter xl:w-[300px] sm:w-[250px] sml:w-[90vw] md:w-[70%] 3xl:w-[40%]">
       <a href="/" className="-ml-[20px]">
         <img src="/mz_logo_white.svg" alt="Mamazee White Logo" />
       </a>
-      <h3 className="py-[20px] pl-[20px] text-justify text-[14px]">
+      <h3 className="py-[20px] pl-[20px] text-justify text-[14px] 3xl:w-[75%]">
         Our overall objective is to enhance your hair texture and length while
         making sure that your hair growth goals are met & exceeded because
         Mamazee&apos;s hair products exist to make you happy.
