@@ -10,8 +10,22 @@ type Props = {};
 const MobileNavBar = (props: Props) => {
   const [showNav, setShowNav] = React.useState<boolean>(false);
 
+  React.useEffect(() => {
+    // Apply or remove the overflow-hidden class based on the showNav state
+    const handleBodyOverflow = () => {
+      document.body.style.overflow = showNav ? 'hidden' : 'auto';
+    };
+
+    handleBodyOverflow();
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [showNav]);
+
   return (
-    <div>
+    <div className='overflow-hidden'>
       {/* MOBILE DEVICES */}
       <>
         <div className="md:hidden flex items-center relative justify-between px-[20px] transition-transform duration-500">
@@ -34,7 +48,7 @@ const MobileNavBar = (props: Props) => {
               <MoveRight />
             </a>
           ))}
-          <Link href="/shop">
+          <Link href="/auth/login">
             <h4 className="bg-mzGold text-white rounded px-4 py-2.5 text-center mt-10">
               Log in
             </h4>

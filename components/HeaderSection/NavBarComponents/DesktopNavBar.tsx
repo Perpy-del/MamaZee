@@ -28,7 +28,7 @@ const DesktopNavBar = (props: Props) => {
             <h4>Cart</h4>
           </div>
         </Link>
-        <Link href="/shop">
+        <Link href="/auth/login">
           <h4 className="bg-mzGold text-white rounded px-4 py-1 hover:transition-transform hover:scale-105 hover:text-bold duration-500 ease-in-out hover:bg-[#daab2d]">
             Log in
           </h4>
