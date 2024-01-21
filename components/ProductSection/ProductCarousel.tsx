@@ -3,6 +3,7 @@
 import React from 'react';
 import { productCarousel } from './data';
 import { Button } from '../ui/button';
+import Image from 'next/image';
 
 type Props = {};
 
@@ -44,7 +45,7 @@ const ProductCarousel = (props: Props) => {
             return (
               <div key={index} className={`${currentIndex === index ? 'flex flex-wrap' : 'hidden'} justify-center h-full w-full`}>
                 <div className="sm:w-[100%] xl:w-[50%] md:w-[60%] xxl:w-[40%] 3xl:w-[25%] md:rounded-l mdl:w-[80%] lg:w-[50%]">
-                  <img src={product.productImage} alt="Image" className='md:rounded-l' />
+                  <Image src={product.productImage} alt="Image" className='md:rounded-l object-cover object-center' width={541} height={570} priority />
                 </div>
                 <div className="sm:w-[100%] xl:w-[50%] xxl:w-[40%] md:w-[60%] 3xl:w-[50%] bg-mzLight xl:px-[40px] xxl:py-[30px] 3xl:px-[60px] 3xl:py-[50px] mdl:w-[80%] xl:py-[50px] sm:pt-[10px] sm:px-[20px] sm:pb-[40px] mdl:p-[20px] flex flex-col lg:gap-5 md:p-[20px] sm:gap-2 sm:rounded-b mdg:rounded-r lg:w-[50%] lg:p-[30px]">
                   <h1 className="text-mzBlack xl:text-[25px] sm:text-[20px] font-[600] 3xl:text-[40px] mdl:text-[18px]">

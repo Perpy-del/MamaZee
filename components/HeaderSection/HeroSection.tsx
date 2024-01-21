@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay"
 import { carouselImages } from './data';
+import Image from 'next/image';
 
 type Props = {};
 
@@ -39,8 +40,6 @@ const HeroSection = (props: Props) => {
         <Carousel
           plugins={[plugin.current]}
           className="w-full md:max-w-[550px] 2xl:max-w-[700px] mdl:max-w-[500px]"
-          // onMouseEnter={plugin.current.stop}
-          // onMouseLeave={plugin.current.reset}
         >
           <CarouselContent className='border-mzBlack'>
             {carouselImages.map((carousel, index) => (
@@ -49,7 +48,7 @@ const HeroSection = (props: Props) => {
                   <Card className='bg-mzBlack border-mzBlack'>
                     <CardContent className="">
                       <span className="">
-                        <img alt='carousel_image' src={carousel.image} className='border-mzBlack bg-mzBlack' />                        
+                        <Image alt='carousel_image' src={carousel.image} className='border-mzBlack bg-mzBlack' width={550} height={550} priority />                        
                       </span>
                     </CardContent>
                   </Card>

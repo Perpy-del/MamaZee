@@ -11,6 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import Image from 'next/image';
 
 type Props = {};
 
@@ -35,10 +36,13 @@ const ExploreShop = (props: Props) => {
                 className="flex flex-col items-center gap-5 pb-12"
               >
                 <div className="transform duration-500 ease-in-out cursor-pointer hover:scale-105">
-                  <img
+                  <Image
                     src={card.cardImage}
                     alt="product_cards"
                     className="w-[95%] mdl:w-[250px] lg:w-[200px] xl:w-[250px] mdg:w-[180px] 3xl:w-[400px]"
+                    width={500}
+                    height={500}
+                    priority
                   />
                 </div>
                 <div className="flex flex-col gap-[10px] text-center sm:gap-1 mdg:w-[80%] xl:w-[90%]">
@@ -69,10 +73,13 @@ const ExploreShop = (props: Props) => {
                   <Card className='border-mzLight'>
                     <CardShopContent className=" items-center justify-center">
                       <div className=''>
-                        <img
+                        <Image
                           src={card.cardImage}
                           alt="product_cards"
                           className="object-contain"
+                          width={500}
+                          height={500}
+                          priority
                         />
                       </div>
                       <div className="flex flex-col gap-[10px] text-center sm:gap-1">
