@@ -25,10 +25,10 @@ const ContactFooter = (props: Props) => {
       <div className='flex flex-col gap-3'>
         <h1 className='text-[16px] font-bold'>Contact Us</h1>
         <h3 className='text-[14px] sm:w-[80%] sml:w-[90vw] lg:w-[80%] xl:w-[75%]' >
-          Mama Zee Hair World Admiralty Estate, Asaba, Delta State, Nigeria
+          Mama Zee Hair World, <span className='block'>Admiralty Estate, Asaba, Delta State, Nigeria</span>
         </h3>
-        <h3 className='text-[14px]'>mamazeehairworld@gmail.com</h3>
-        <h3 className='text-[14px]'>234-809-852-0298</h3>
+        <h3 className='text-[14px]'>mamazeehair@gmail.com</h3>
+        <h3 className='text-[14px]'>234-906-504-1260</h3>
       </div>
     </div>
   );
