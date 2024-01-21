@@ -41,10 +41,10 @@ const ProductShop = (props: Props) => {
                 <div
                   key={index}
                   className="mx-auto pb-[30px] sm:w-[230px] sml:w-[250px] smd:w-[300px] mdl:w-[220px] md:w-[260px] lg:w-[200px] xl:w-[220px] xxl:w-[250px] 2xl:w-[260px] hover:opacity-100"
-                  onPointerEnter={() =>
+                  onMouseEnter={() =>
                     handleMouseEnter(product.productName)
                   }
-                  onPointerLeave={handleMouseLeave}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <div className="border rounded border-mzBlack w-[260px] sm:w-[230px] sml:w-[250px] smd:w-[300px] mdl:w-[220px] md:w-[260px] lg:w-[200px] xl:w-[220px] xxl:w-[250px] 2xl:w-[260px] cursor-pointer relative">
                     <img
@@ -98,7 +98,7 @@ const ProductShop = (props: Props) => {
                       {isProductHovered && (
                         <Button
                           variant="mzvariant"
-                          className="rounded w-[170px] absolute bottom-10 left-6 transition "
+                          className="rounded w-[170px] absolute bottom-10 left-6 transition"
                         >
                           Add to cart
                         </Button>
