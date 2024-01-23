@@ -41,7 +41,7 @@ const RegisterLogin = (props: LoginRegisterInterface) => {
           alt="mamazee logo"
           width={150}
           height={72}
-          className='sm:w-[50%] mdl:w-[150px]'
+          className='sm:w-[50%] mdl:w-[150px] md:w-[100px] mdg:w-[150px]'
           priority
         />
       </Link>
@@ -79,7 +79,7 @@ const RegisterLogin = (props: LoginRegisterInterface) => {
           </>
         ) : (
           <>
-            <h1 className="text-[#AC8005] mdg:text-[20px] xl:text-[30px] sm:text-[18px] font-medium sm:pt-7 md:pt-4 lg:pt-7 xxl:pt-48 mdl:text-[25px]">
+            <h1 className="text-[#AC8005] mdg:text-[20px] xl:text-[30px] md:text-[18px] sm:text-[18px] font-medium sm:pt-7 md:pt-4 lg:pt-7 xxl:pt-48 mdl:text-[25px]">
               It’s nice to see you again.{' '}
               <span className="block">Log in to Mamazee</span>
             </h1>
