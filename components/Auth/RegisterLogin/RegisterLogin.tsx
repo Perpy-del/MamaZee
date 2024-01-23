@@ -14,8 +14,6 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 
 interface LoginRegisterInterface {
-  topText: string;
-  bottomText: string;
   buttonText: 'Log in' | 'Signup';
 }
 
