@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/mulish": "^5.0.16",
+    "@mui/icons-material": "^5.15.5",
+    "@mui/material": "^5.15.5",
     "@radix-ui/react-slot": "^1.0.2",
     "@sanity/image-url": "^1.0.2",
     "@stripe/stripe-js": "^2.3.0",
