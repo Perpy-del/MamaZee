@@ -1,11 +1,16 @@
+'use client'
+
 import React from 'react'
+import RegisterLogin from '../../../components/Auth/RegisterLogin/RegisterLogin'
+import RightSideSection from '../../../components/Auth/RegisterLogin/RightSideSection'
 
-type Props = {}
-
-const SignUpPage = (props: Props) => {
+const Login = () => {
   return (
-    <div>SignUpPage</div>
+    <div className='flex'>
+        <RegisterLogin topText="Let’s get you started." bottomText="Sign up on Mamazee" buttonText={'Sign up'}  />
+        <RightSideSection />
+    </div>
   )
 }
 
-export default SignUpPage
+export default Login

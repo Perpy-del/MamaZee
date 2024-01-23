@@ -14,7 +14,9 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 
 interface LoginRegisterInterface {
-  buttonText: 'Log in' | 'Signup';
+  topText: string;
+  bottomText: string;
+  buttonText: 'Log in' | 'Sign up';
 }
 
 const RegisterLogin = (props: LoginRegisterInterface) => {
@@ -39,7 +41,7 @@ const RegisterLogin = (props: LoginRegisterInterface) => {
           alt="mamazee logo"
           width={150}
           height={72}
-          className='sm:w-[50%] mdl:w-[150px] md:w-[100px] mdg:w-[150px]'
+          className="sm:w-[50%] mdl:w-[150px] md:w-[100px] mdg:w-[150px]"
           priority
         />
       </Link>
@@ -47,18 +49,17 @@ const RegisterLogin = (props: LoginRegisterInterface) => {
       {/* lets get started */}
       <div className="flex flex-col mdg:pl-[50px] lg:pl-[0px] xl:pl-[50px] sm:pl-[10px] sm:w-full items-start mdg:pr-[50px] xl:w-[90%] 2xl:w-[87%] 2xl:pl-[150px]">
         {/* Top */}
-        {props.buttonText === 'Log in' ? (
+        {props.buttonText === 'Sign up' ? (
           <>
-            <h1 className="text-[#AC8005] text-[25px] font-medium pt-7">
-              Let’s get you started.{' '}
-              <span className="block">Sign up on Mamazee</span>
+            <h1 className="text-[#AC8005] mdg:text-[20px] xl:text-[25px] md:text-[18px] sm:text-[18px] font-medium sm:pt-7 md:pt-4 lg:pt-7 xxl:pt-48 mdl:text-[25px]">
+              {props.topText} <span className="block">{props.bottomText}</span>
             </h1>
-            <div className="flex items-center sm:gap-3 xxl:gap-10 mx-auto mt-5">
+            <div className="flex items-center gap-3 mx-auto mt-5 sm:w-full">
               {registerLoginData.map((data, index) => {
                 return (
                   <div
                     key={index}
-                    className="bg-mzTextBlack border border-[#504E48] border-solid rounded w-[95px] h-[40px] hover:bg-mzBlack inline-flex items-center justify-center cursor-pointer"
+                    className="md:bg-mzTextBlack sm:bg-mzBlack border border-[#504E48] border-solid rounded md:w-[95px] sm:w-1/4 h-[40px] md:hover:bg-mzBlack inline-flex items-center justify-center cursor-pointer"
                     title={`Log in with ${data.title}`}
                   >
                     <button>
@@ -77,9 +78,8 @@ const RegisterLogin = (props: LoginRegisterInterface) => {
           </>
         ) : (
           <>
-            <h1 className="text-[#AC8005] mdg:text-[20px] xl:text-[30px] md:text-[18px] sm:text-[18px] font-medium sm:pt-7 md:pt-4 lg:pt-7 xxl:pt-48 mdl:text-[25px]">
-              It’s nice to see you again.{' '}
-              <span className="block">Log in to Mamazee</span>
+            <h1 className="text-[#AC8005] mdg:text-[20px] xl:text-[25px] md:text-[18px] sm:text-[18px] font-medium sm:pt-7 md:pt-4 lg:pt-7 xxl:pt-48 mdl:text-[25px]">
+              {props.topText} <span className="block">{props.bottomText}</span>
             </h1>
             <div className="flex items-center gap-3 mx-auto mt-5 sm:w-full">
               {registerLoginData.map((data, index) => {
@@ -104,14 +104,12 @@ const RegisterLogin = (props: LoginRegisterInterface) => {
             </div>
           </>
         )}
-
         {/* OR */}
         <div className="w-full flex items-center justify-between md:mt-[30px] lg:mt-[60px] sm:mt-[30px] xxl:mt-[100px]">
           <div className="bg-[#504E48] h-[1px] w-[45%]"></div>
           <span className="text-[#78756C] xxl:text-[24px]"> Or </span>
           <div className="bg-[#504E48] h-[1px] w-[45%]"></div>
         </div>
-
         {/* Bottom */}
         <div>
           <form className="lg:mt-[40px] md:mt-[10px] sm:mt-[10px] sm:w-[85vw] md:w-[41vw] xl:w-[400px] mdg:w-[33vw] lg:w-[35vw] mdm:w-[89vw] mdl:w-[80vw] xxl:w-[31vw]">
@@ -167,23 +165,23 @@ const RegisterLogin = (props: LoginRegisterInterface) => {
             </ThemeProvider>
           </form>
         </div>{' '}
-        {props.buttonText === 'Log in' ? (
+        {props.buttonText === 'Sign up' ? (
           <div className="w-full text-center">
             <Button
               variant="mzvariant"
-              className="h-10 rounded mt-[20px] w-full text-mzLight"
+              className="sm:h-10 2xl:h-12 rounded mt-[20px] mb-[10px] sm:text-[16px] 2xl:text-[20px] w-full text-mzLight"
             >
               Sign up
             </Button>
-            <h4 className="text-[#BFBBB1] text-[14px]">
-              Don’t have an account?{' '}
+            <h4 className="text-[#BFBBB1] sm:text-[14px] 2xl:text-[20px]">
+              Already have an account?{' '}
               <span className="text-mzTextLight hover:underline">
                 <Link href="/auth/login">Log in</Link>
               </span>
             </h4>
           </div>
         ) : (
-          <div className="w-full text-center sm:pt-[0px] xl:pt-[30px]">
+          <div className="w-full text-center sm:pt-[0px] xl:pt-[10px]">
             <Button
               variant="mzvariant"
               className="sm:h-10 2xl:h-12 rounded mt-[20px] mb-[10px] sm:text-[16px] 2xl:text-[20px] w-full text-mzLight"
