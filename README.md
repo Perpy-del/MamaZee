@@ -40,7 +40,11 @@ This project is licensed under the MIT License.
 ## Screenshot
 
 Here is a screenshot of the project:
-![Mamazee]()
+![Mamazee](/public/mamazee_screenshot.png)
+
+## Development Link
+Here is the link to the development site.
+[Mamazee](https://mamazeedev.onrender.com/)
 
 ## Live Link
 
