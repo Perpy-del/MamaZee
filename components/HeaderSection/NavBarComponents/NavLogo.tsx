@@ -13,6 +13,7 @@ const NavLogo = (props: Props) => {
           width={150}
           height={72}
           className="sm:w-[50%] smd:w-[75%] md:w-[90%] lg:w-[100%]"
+          priority
         />
       </a>
     </>

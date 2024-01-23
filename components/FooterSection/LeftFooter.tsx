@@ -5,6 +5,7 @@ import { AiOutlineYoutube } from 'react-icons/ai';
 import { FaLinkedinIn } from 'react-icons/fa6';
 import { FiTwitter } from 'react-icons/fi';
 import { TbBrandTiktok } from 'react-icons/tb';
+import Image from 'next/image';
 
 type Props = {};
 
@@ -12,7 +13,7 @@ const LeftFooter = (props: Props) => {
   return (
     <div className="text-mzTextFooter xl:w-[300px] sm:w-[250px] sml:w-[90vw] md:w-[70%] 3xl:w-[40%]">
       <a href="/" className="-ml-[20px]">
-        <img src="/mz_logo_white.svg" alt="Mamazee White Logo" />
+        <Image src="/mz_logo_white.svg" alt="Mamazee White Logo" width={135} height={48} priority />
       </a>
       <h3 className="py-[20px] pl-[20px] text-justify text-[14px] 3xl:w-[75%]">
         Our overall objective is to enhance your hair texture and length while
