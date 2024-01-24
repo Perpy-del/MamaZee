@@ -3,7 +3,7 @@ import PasswordResetComponent from '@/components/Auth/PasswordResetComponent';
 
 type Props = {};
 
-const EmailResetPage = (props: Props) => {
+const EmailResetSentPage = (props: Props) => {
   return (
     <>
       <PasswordResetComponent
@@ -15,4 +15,4 @@ const EmailResetPage = (props: Props) => {
   );
 };
 
-export default EmailResetPage;
+export default EmailResetSentPage;
