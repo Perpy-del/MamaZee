@@ -24,20 +24,39 @@ export const customTheme = (outerTheme: Theme) =>
             '& label': {
               color: 'var(--TextField-brandBorderColor)',
               fontSize: '14px',
+              '@media (min-width: 2560px)': {
+                fontSize: '30px',
+                paddingBottom: '30px',
+              }
             },
             '& label.Mui-focused': {
               color: 'var(--TextField-brandBorderFocusedColor)',
+              '@media (min-width: 2560px)': {
+                fontSize: '30px',
+                paddingBottom: '20px',
+              } 
             },
             '& label.MuiInputLabel-shrink': {
               color: 'var(--TextField-brandBorderColor)',
+              '@media (min-width: 2560px)': {
+                fontSize: '30px',
+                paddingBottom: '20px',
+              }              
             },
             '& input': {
               color: '#EEEEEE',
               paddingBottom: '10px',
               fontSize: '14px',
+              '@media (min-width: 2560px)': {
+                fontSize: '30px',
+                paddingBottom: '20px',
+              }
             },
             '&:focus-within input': {
               paddingBottom: '0',
+              '@media (min-width: 2560px)': {
+                padding: '20px 0'
+              }
             },
           },
         },
