@@ -1,5 +1,5 @@
 import React from 'react';
-import PasswordResetComponent from '@/components/Auth/RegisterLogin/PasswordResetComponent';
+import PasswordResetComponent from '@/components/Auth/PasswordResetComponent';
 
 type Props = {};
 
