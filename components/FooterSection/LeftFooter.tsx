@@ -17,7 +17,7 @@ const LeftFooter = (props: Props) => {
       </a>
       <h3 className="py-[20px] pl-[20px] text-justify text-[14px] 3xl:w-[75%]">
         Our overall objective is to enhance your hair texture and length while
-        making sure that your hair growth goals are met & exceeded because
+        making sure that your hair growth goals are met and exceeded because
         Mamazee&apos;s hair products exist to make you happy.
       </h3>
       <div className="flex gap-4 pl-[20px] items-center">

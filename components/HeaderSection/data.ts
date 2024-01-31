@@ -5,7 +5,7 @@ export const navData = [
     },
     {
         name: 'Our products',
-        link: "/products"
+        link: "/#products"
     },
     {
         name: 'About',
