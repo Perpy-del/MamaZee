@@ -7,7 +7,7 @@ type Props = {}
 const CartLayout = ({children}: {children: React.ReactNode}) => {
   return (
     <div>
-        <div className='bg-mzBlack text-mzLight pl-20 pr-14'>
+        <div className='bg-mzBlack text-mzLight md:pl-[40px] mdg:pl-20 mdg:pr-14'>
         <NavBar />
         {children}
         </div>
