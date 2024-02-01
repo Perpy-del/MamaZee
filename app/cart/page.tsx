@@ -5,6 +5,7 @@ import React from 'react';
 import { Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation'
+import RemoveItemDialog from '@/components/CartSection/RemoveItemDialog';
 
 type Props = {};
 
@@ -56,10 +57,7 @@ const CartPage = (props: Props) => {
                         <h3 className="md:text-sm 3xl:text-xl font-bold">$400</h3>
                       </div>
                     </div>
-                    <div className="flex gap-1 items-center">
-                      <Trash2 size={15} color="#FD4536" />
-                      <h3 className="text-[#FD4536] text-sm">Remove</h3>
-                    </div>
+                    <RemoveItemDialog />
                   </td>
                   <td>
                     <div className="flex items-center justify-center mdg:px-2 py-1 gap-2 rounded mdg:border border-[#D9D9D9] md:w-[63%] mdg:w-[85%] 3xl:w-[50%]">
@@ -129,10 +127,7 @@ const CartPage = (props: Props) => {
                         <h3 className="text-sm font-bold pb-3">$400</h3>
                       </div>
                     </div>
-                    <div className="flex gap-1 items-center">
-                      <Trash2 size={15} color="#FD4536" />
-                      <h3 className="text-[#FD4536] text-sm">Remove</h3>
-                    </div>
+                    <RemoveItemDialog />
                   </td>
                   <td>
                     <div className="flex items-center px-1 py-1 gap-1 rounded border justify-center border-[#D9D9D9]-500 w-[90%]">

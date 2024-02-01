@@ -39,7 +39,7 @@ const DesktopNavBar = (props: Props) => {
           </React.Fragment>
         ))}
         <Link href="/cart">
-          <div className={`flex items-center gap-1 ${pathname === '/cart' ? "text-mzGold font-bold" : "hover:text-mzGold hover:font-bold"}`}>
+          <div className={`flex items-center gap-1 ${pathname === '/cart' || pathname === '/cart/checkout' ? "text-mzGold font-bold" : "hover:text-mzGold hover:font-bold"}`}>
             <IoMdCart />
             <h4>Cart</h4>
           </div>
