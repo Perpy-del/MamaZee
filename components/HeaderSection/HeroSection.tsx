@@ -14,10 +14,13 @@ import {
 import Autoplay from "embla-carousel-autoplay"
 import { carouselImages } from './data';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 type Props = {};
 
 const HeroSection = (props: Props) => {
+  const router = useRouter();
+
   const plugin = React.useRef(
     Autoplay({ delay: 3000 })
   )
@@ -32,7 +35,7 @@ const HeroSection = (props: Props) => {
           Natural hair products that replenish your hair leaving it beautiful
           and soft
         </h4>
-        <Button variant="mzvariant" size="mzsize">
+        <Button variant="mzvariant" size="mzsize" onClick={() => {router.push('/#products')}}>
           Shop now
         </Button>
       </div>
