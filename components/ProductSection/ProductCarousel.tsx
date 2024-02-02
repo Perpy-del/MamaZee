@@ -4,10 +4,13 @@ import React from 'react';
 import { productCarousel } from './data';
 import { Button } from '../ui/button';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 type Props = {};
 
 const ProductCarousel = (props: Props) => {
+  const router = useRouter();
+
   const [currentIndex, setCurrentIndex] = React.useState<number>(0);
 
   const showImage = (index: number) => {
@@ -58,6 +61,7 @@ const ProductCarousel = (props: Props) => {
                     variant="mzvariant"
                     size="mzsize"
                     className="xl:mt-[40px] sm:mt-[10px] 3xl:text-[18px] 3xl:mt-[20px]"
+                    onClick={() => router.push('/#products')}
                   >
                     Shop now
                   </Button>
