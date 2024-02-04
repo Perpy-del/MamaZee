@@ -3,11 +3,11 @@
 import React from 'react';
 import Image from 'next/image';
 import { FormControl, FormHelperText, TextField } from '@mui/material';
+import { customTheme } from './customTheme';
 import { ThemeProvider, useTheme } from '@mui/material/styles';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { registerLoginData } from './data';
-import { customTheme } from './customTheme';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
