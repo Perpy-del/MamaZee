@@ -19,6 +19,7 @@ import { ShoppingBag } from 'lucide-react';
 import { Heart } from 'lucide-react';
 import AccountTabComponent from '@/components/AccountSection/AccountTabComponent';
 import DeliveryAddressTab from '@/components/AccountSection/DeliveryAddressTab';
+import OrderHistorySection from '@/components/AccountSection/OrderHistorySection';
 
 type Props = {};
 
@@ -71,6 +72,7 @@ const AccountPage = (props: Props) => {
               </TabsList>
               <AccountTabComponent />
               <DeliveryAddressTab />
+              <OrderHistorySection />
             </Tabs>
           </div>
         </div>
