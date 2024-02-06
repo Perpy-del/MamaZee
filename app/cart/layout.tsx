@@ -1,19 +1,19 @@
-import Footer from '@/components/Footer'
-import NavBar from '@/components/HeaderSection/NavBar'
-import React from 'react'
+import Footer from '@/components/Footer';
+import NavBar from '@/components/HeaderSection/NavBar';
+import React from 'react';
 
-type Props = {}
+type Props = {};
 
-const CartLayout = ({children}: {children: React.ReactNode}) => {
+const CartLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-        <div className='bg-mzBlack text-mzLight md:pl-[40px] mdg:pl-20 mdg:pr-14'>
+      <div className="bg-mzBlack text-mzLight md:pl-[40px] mdg:pl-20 mdg:pr-14">
         <NavBar />
         {children}
-        </div>
-        <Footer />
+      </div>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default CartLayout
+export default CartLayout;
