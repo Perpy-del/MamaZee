@@ -17,17 +17,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { FaUser } from 'react-icons/fa';
 import { ShoppingBag } from 'lucide-react';
 import { Heart } from 'lucide-react';
-import { ThemeProvider, useTheme } from '@mui/material/styles';
-import { CustomTheme } from '@/components/CartSection/CustomTheme';
-import CartTextField from '@/components/CartSection/CartTextField';
 import AccountTabComponent from '@/components/AccountSection/AccountTabComponent';
-import DeliveryAddressTabComponent from '@/components/AccountSection/DeliveryAddressTabComponent';
+import DeliveryAddressTab from '@/components/AccountSection/DeliveryAddressTab';
 
 type Props = {};
 
 const AccountPage = (props: Props) => {
-  const outerTheme = useTheme();
-
   return (
     <div>
       <div className="bg-mzBlack text-mzLight md:pl-[40px] mdg:pl-20 mdg:pr-14">
@@ -57,23 +52,25 @@ const AccountPage = (props: Props) => {
                     <ShoppingBag size={20} />
                     <h3>My orders</h3>
                   </div>
-                    <TabsTrigger value="order-history" className="mt-5 mb-3">
-                      Order history
-                    </TabsTrigger>
+                  <TabsTrigger value="order-history" className="mt-5 mb-3">
+                    Order history
+                  </TabsTrigger>
                 </div>
                 <div className="pl-6 pt-6 pb-6 border-b border-[#504E48]">
                   <div className="flex gap-2 items-center">
                     <Heart size={20} />
                     <h3>Wishlist</h3>
                   </div>
-                    <TabsTrigger value="saved-items" className="mt-5 mb-3">
-                     Saved items
-                    </TabsTrigger>
+                  <TabsTrigger value="saved-items" className="mt-5 mb-3">
+                    Saved items
+                  </TabsTrigger>
                 </div>
-                <h3 className="pl-6 pt-6 font-bold cursor-pointer hover:text-[#FD4536]">LOGOUT</h3>
+                <h3 className="pl-6 pt-6 font-bold cursor-pointer hover:text-[#FD4536]">
+                  LOGOUT
+                </h3>
               </TabsList>
               <AccountTabComponent />
-              <DeliveryAddressTabComponent />
+              <DeliveryAddressTab />
             </Tabs>
           </div>
         </div>
