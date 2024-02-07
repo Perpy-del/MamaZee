@@ -20,6 +20,7 @@ import { Heart } from 'lucide-react';
 import AccountTabComponent from '@/components/AccountSection/AccountTabComponent';
 import DeliveryAddressTab from '@/components/AccountSection/DeliveryAddressTab';
 import OrderHistorySection from '@/components/AccountSection/OrderHistorySection';
+import SavedItemTabComponent from '@/components/AccountSection/SavedItemTabComponent';
 
 type Props = {};
 
@@ -73,6 +74,7 @@ const AccountPage = (props: Props) => {
               <AccountTabComponent />
               <DeliveryAddressTab />
               <OrderHistorySection />
+              <SavedItemTabComponent />
             </Tabs>
           </div>
         </div>

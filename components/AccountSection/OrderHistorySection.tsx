@@ -23,21 +23,34 @@ const OrderHistorySection = (props: Props) => {
             </div>
           ) : (
             <div>
-                {data.map((order: IOrder, index: number) => {
-                    return (
-                        <div key={index} className='flex justify-between px-5 pt-7'>
-                            <div className='flex gap-4'>
-                                <Image src={order.imageUrl} alt='order image' width={79} height={74} />
-                                <div>
-                                    <h3 className='font-medium pb-1.5'>{order.productName}</h3>
-                                    <h3 className='font-light text-[15px] pb-1.5'>{order.amount}</h3>
-                                    <h3 className='font-extralight text-sm'>{order.orderDate}</h3>
-                                </div>
-                            </div>
-                            <Button variant='mzvariant' className='rounded'>Buy again</Button>
-                        </div>
-                    )
-                })}
+              {data.map((order: IOrder, index: number) => {
+                return (
+                  <div key={index} className="flex justify-between px-5 pt-7">
+                    <div className="flex gap-4">
+                      <Image
+                        src={order.imageUrl}
+                        alt="order image"
+                        width={79}
+                        height={74}
+                      />
+                      <div>
+                        <h3 className="font-medium pb-1.5">
+                          {order.productName}
+                        </h3>
+                        <h3 className="font-light text-[15px] pb-1.5">
+                          {order.amount}
+                        </h3>
+                        <h3 className="font-extralight text-sm">
+                          {order.orderDate}
+                        </h3>
+                      </div>
+                    </div>
+                    <Button variant="mzvariant" className="rounded">
+                      Buy again
+                    </Button>
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>

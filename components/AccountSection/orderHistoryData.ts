@@ -11,5 +11,11 @@ export const data = [
         productName: 'Natural Breather Hair Product',
         amount: '$400',
         orderDate: 'December 21, 2023'
-    }
+    },
+    {
+        imageUrl: '/product_ex.svg',
+        productName: 'Natural Breather Hair Product',
+        amount: '$400',
+        orderDate: 'December 21, 2023'
+    },
 ]
