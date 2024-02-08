@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import React from 'react';
-import { Trash2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation'
 import RemoveItemDialog from '@/components/CartSection/RemoveItemDialog';
