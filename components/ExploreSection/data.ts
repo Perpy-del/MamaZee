@@ -4,27 +4,27 @@ export const exploreCards = [
         product: "Zara's Oil",
         prodDescription: "Shop products designed for your hair",
         prodButton: "Shop Zara's Oil",
-        href: "/zara-products"
+        href: "/products/zara"
     },
     {
         cardImage: "/explore_card_two.svg",
         product: "Glow Set",
         prodDescription: "Shop products designed for your hair",
         prodButton: "Shop Glow set",
-        href: "/glow-products"
+        href: "/products/glow"
     },
     {
         cardImage: "/explore_card_three.svg",
         product: "Fruity Set🍓",
         prodDescription: "Shop products designed for your hair",
         prodButton: "Shop Fruity Set",
-        href: "/fruity-products"
+        href: "/products/fruity"
     },
     {
         cardImage: "/explore_card_four.svg",
         product: "Aleo Set",
         prodDescription: "Shop products designed for your hair",
         prodButton: "Shop Aleo Set",
-        href: "/aloe-products"
+        href: "/products/aloe"
     }
 ]

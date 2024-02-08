@@ -22,7 +22,7 @@ const ExploreShop = (props: Props) => {
   const router = useRouter();
 
   return (
-    <>
+    <div id='explore'>
       <div className="md:pb-[30px] sm:pb-[45px] text-center">
         <h1 className="lg:text-[30px] font-bold sm:text-[24px] 3xl:text-[45px]">
           Explore our store
@@ -112,7 +112,7 @@ const ExploreShop = (props: Props) => {
           <CarouselNext variant={null} />
         </Carousel>
       </>
-    </>
+    </div>
   );
 };
 
