@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+'use client';
+
 import React from 'react';
 import { exploreCards } from './data';
 import { Button } from '../ui/button';
@@ -12,10 +14,13 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 type Props = {};
 
 const ExploreShop = (props: Props) => {
+  const router = useRouter();
+
   return (
     <>
       <div className="md:pb-[30px] sm:pb-[45px] text-center">
@@ -55,6 +60,7 @@ const ExploreShop = (props: Props) => {
                   <Button
                     variant="mzvariant"
                     className="rounded w-[100%] mx-auto 3xl:text-[18px]"
+                    onClick={() => router.push(card.href)}
                   >
                     {card.prodButton}
                   </Button>
