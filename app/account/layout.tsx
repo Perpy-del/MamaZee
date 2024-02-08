@@ -2,9 +2,7 @@ import Footer from '@/components/Footer';
 import NavBar from '@/components/HeaderSection/NavBar';
 import React from 'react';
 
-type Props = {};
-
-const CartLayout = ({ children }: { children: React.ReactNode }) => {
+const AccountLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <div className="bg-mzBlack text-mzLight md:pl-[40px] mdg:pl-20 mdg:pr-14">
@@ -16,4 +14,4 @@ const CartLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default CartLayout;
+export default AccountLayout;

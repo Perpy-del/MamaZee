@@ -13,7 +13,11 @@ import {
 import { Button } from '@/components/ui/button';
 import { Trash2, X } from 'lucide-react';
 
-type Props = {};
+type Props = {
+  removeText: string;
+  fromText: string;
+  questionText: string;
+};
 
 const RemoveItemDialog = (props: Props) => {
   return (
@@ -22,14 +26,14 @@ const RemoveItemDialog = (props: Props) => {
         <AlertDialogTrigger asChild>
           <Button className="bg-transparent hover:bg-transparent flex gap-1 items-center p-0 h-5">
             <Trash2 size={15} color="#FD4536" />
-            <h3 className="text-[#FD4536] text-sm">Remove</h3>
+            <h3 className="text-[#FD4536] text-sm">{props.removeText}</h3>
           </Button>
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>Remove from cart</AlertDialogTitle>
+            <AlertDialogTitle>Remove from {props.fromText}</AlertDialogTitle>
             <AlertDialogDescription>
-              Do you really want to remove this item from cart?
+              Do you really want to remove this {props.questionText}?
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

@@ -2,7 +2,7 @@ import React from 'react';
 import CartTextField from '@/components/CartSection/CartTextField';
 
 interface dbInterface {
-  topicText: string;
+  topicText?: string;
 }
 
 const DeliveryBillingComponent = (props: dbInterface) => {

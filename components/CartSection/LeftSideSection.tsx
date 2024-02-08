@@ -1,5 +1,4 @@
 import React from 'react';
-import { Separator } from '@/components/ui/separator';
 import { CustomTheme } from '@/components/CartSection/CustomTheme';
 import { ThemeProvider, useTheme } from '@mui/material/styles';
 import { Dot } from 'lucide-react';
