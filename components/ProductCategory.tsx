@@ -4,12 +4,16 @@ import * as React from 'react';
 import { productData } from '@/components/ProductSection/data';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import { MoveLeft } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 type Props = {
   productCategory: string;
 };
 
 const ProductCategory = ({ productCategory }: Props) => {
+  const router = useRouter();
+
   const [hoveredProduct, setHoveredProduct] = React.useState<string | null>(
     null
   );
@@ -27,6 +31,13 @@ const ProductCategory = ({ productCategory }: Props) => {
   return (
     <div className="md:pl-[40px] mdg:pl-20 mdg:pr-20 pt-20 bg-mzBlack">
       <div className="pl-10 pb-[50px]">
+        <div
+          className="flex gap-3 transition-all transform duration-300 ease-in-out text-mzLight items-center pb-7 hover:font-bold hover:text-mzGold cursor-pointer"
+          onClick={() => router.push('/#explore')}
+        >
+          <MoveLeft size={15} />
+          <h3 className="text-sm">Back to Explore Products</h3>
+        </div>
         <h1 className="text-[30px] sm:text-[25px] text-mzLight font-[600]">
           {productCategory}
         </h1>
