@@ -3,11 +3,11 @@ import { Button } from '@/components/ui/button';
 import { IAddress, data as initialData } from '../addressData';
 import { Pencil, Trash2 } from 'lucide-react';
 
-type Props = {
+export type ToggleAddressProps = {
   toggleNewDeliveryAddress: () => void;
 };
 
-const CurrentDeliveryAddress = ({ toggleNewDeliveryAddress }: Props) => {
+const CurrentDeliveryAddress = ({ toggleNewDeliveryAddress }: ToggleAddressProps) => {
   const [data, setData] = useState<IAddress[]>(initialData);
 
   const toggleDefaultAddress = (add: IAddress) => {
@@ -23,11 +23,11 @@ const CurrentDeliveryAddress = ({ toggleNewDeliveryAddress }: Props) => {
   };
 
   return (
-    <div className="w-[500px] h-[750px] rounded border border-[#504E48] bg-transparent pt-6">
+    <div className="md:w-[420px] mdg:w-[500px] xxl:w-[630px] 3xl:w-[900px] h-[750px] rounded border border-[#504E48] bg-transparent pt-6">
       <>
         <div className="font-semibold flex justify-between items-center text-lg pb-5 mb-10 px-6 border-b border-[#504E48]">
           <h3>Delivery address</h3>
-          <Button variant="mzvariant" className="rounded" onClick={toggleNewDeliveryAddress}>
+          <Button variant="mzvariant" className="rounded font-light" onClick={toggleNewDeliveryAddress}>
             Add new address
           </Button>
         </div>

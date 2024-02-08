@@ -13,7 +13,7 @@ const AccountTabComponent = (props: Props) => {
   return (
     <>
       <TabsContent value="account">
-        <div className="w-[500px] h-[750px] rounded border border-[#504E48] bg-transparent pt-6">
+        <div className="md:w-full mdg:w-[400px] mdg:mr-[25px] lg:mr-0 lg:w-[500px] xxl:w-[630px] 3xl:w-[900px] h-[750px] rounded border border-[#504E48] bg-transparent pt-6">
           <h3 className="font-semibold text-lg pb-5 mb-10 pl-6 border-b border-[#504E48]">
             Account information
           </h3>

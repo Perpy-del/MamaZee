@@ -10,7 +10,7 @@ const OrderHistorySection = (props: Props) => {
   return (
     <>
       <TabsContent value="order-history">
-        <div className="w-[500px] h-[750px] rounded border border-[#504E48] bg-transparent pt-6">
+        <div className="md:w-[420px] mdg:w-[500px] xxl:w-[630px] 3xl:w-[900px] h-[750px] rounded border border-[#504E48] bg-transparent pt-6">
           <div className="font-semibold pb-5 mb-10flex gap-3 items-center px-6 border-b border-[#504E48]">
             <h3>Order history ({data?.length})</h3>
           </div>
@@ -45,7 +45,7 @@ const OrderHistorySection = (props: Props) => {
                         </h3>
                       </div>
                     </div>
-                    <Button variant="mzvariant" className="rounded">
+                    <Button variant="mzvariant" className="rounded font-light">
                       Buy again
                     </Button>
                   </div>

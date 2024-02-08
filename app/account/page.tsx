@@ -14,7 +14,7 @@ const AccountPage = (props: Props) => {
         Account overview
       </h1>
       <Separator className="mt-4 bg-[#36342F] sm:hidden md:block" />
-      <div className="pt-8 md:ml-10">
+      <div className="pt-8 mdg:ml-10 3xl:ml-36 lg:mr-10 2xl:mr-0">
         <LargeScreenAccountComponent />
         <SmallScreenAccountComponent />
       </div>

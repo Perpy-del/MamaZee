@@ -11,7 +11,7 @@ const SavedItemTabComponent = (props: Props) => {
   return (
     <>
     <TabsContent value="saved-items">
-      <div className="w-[500px] h-[750px] rounded border border-[#504E48] bg-transparent pt-6">
+      <div className="md:w-[420px] mdg:w-[500px] xxl:w-[630px] 3xl:w-[900px] h-[750px] rounded border border-[#504E48] bg-transparent pt-6">
         <div className="font-semibold pb-5 mb-10flex gap-3 items-center px-6 border-b border-[#504E48]">
           <h3>Wishlist</h3>
         </div>
