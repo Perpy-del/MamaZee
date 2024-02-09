@@ -40,7 +40,7 @@ const ExploreShop = (props: Props) => {
                 key={index}
                 className="flex flex-col items-center gap-5 pb-12"
               >
-                <div className="transform duration-500 ease-in-out cursor-pointer hover:scale-105">
+                <div className="transform duration-500 ease-in-out cursor-pointer hover:scale-105" onClick={() => router.push(card.href)}>
                   <Image
                     src={card.cardImage}
                     alt="product_cards"

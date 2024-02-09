@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { MoveLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import ProductDescriptionDialog from './ProductSection/ProductDescriptionDialog';
 
 type Props = {
   productCategory: string;
@@ -76,9 +77,7 @@ const ProductCategory = ({ productCategory }: Props) => {
                     )}
                   </div>
                 </div>
-                <h3 className="text-mzProdLight uppercase text-[14px] font-[600] py-2 hover:underline cursor-pointer">
-                  {product.productName}
-                </h3>
+                <ProductDescriptionDialog productName={product.productName} productAmt={product.productAmount} productDesc={product.productDescription} productImage={product.productImage} />
                 <div className="flex items-center justify-between w-full">
                   <h3 className="text-mzLight">{product.productAmount}</h3>
                   <Button variant="mzvariant" className="rounded h-9 lg:hidden">
@@ -122,9 +121,7 @@ const ProductCategory = ({ productCategory }: Props) => {
                     )}
                   </div>
                 </div>
-                <h3 className="text-mzProdLight uppercase text-[14px] font-[600] py-2 hover:underline cursor-pointer">
-                  {product.productName}
-                </h3>
+                <ProductDescriptionDialog productName={product.productName} productAmt={product.productAmount} productDesc={product.productDescription} productImage={product.productImage} />
                 <div className="flex items-center justify-between w-full">
                   <h3 className="text-mzLight">{product.productAmount}</h3>
                   <Button variant="mzvariant" className="rounded h-9 lg:hidden">

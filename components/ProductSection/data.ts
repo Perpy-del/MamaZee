@@ -2,22 +2,26 @@ export const productData = [
     {
         productImage: '/products/product_one.svg',
         productName: 'SeaFluid Hair Oil',
-        productAmount: 'NGN 35,000'
+        productAmount: 'NGN 35,000',
+        productDescription: 'Another key component in our Hair Renewal Elixir is Horsetail Extract, a natural source of silica that helps strengthen hair strands, reduce brittleness, and enhance overall hair texture. Additionally, the elixir includes Biotin, a vitamin essential for hair health, which nourishes and supports the growth of strong, lustrous hair.',
     },
     {
         productImage: '/products/product_two.svg',
         productName: 'Natural Breather Hair Product',
-        productAmount: 'NGN 105,360'
+        productAmount: 'NGN 105,360',
+        productDescription: 'Another key component in our Hair Renewal Elixir is Horsetail Extract, a natural source of silica that helps strengthen hair strands, reduce brittleness, and enhance overall hair texture. Additionally, the elixir includes Biotin, a vitamin essential for hair health, which nourishes and supports the growth of strong, lustrous hair.',
     },
     {
         productImage: '/products/product_three.svg',
         productName: 'MamaZee Hair Brush Accessory',
-        productAmount: 'NGN 15,000'
+        productAmount: 'NGN 15,000',
+        productDescription: 'Another key component in our Hair Renewal Elixir is Horsetail Extract, a natural source of silica that helps strengthen hair strands, reduce brittleness, and enhance overall hair texture. Additionally, the elixir includes Biotin, a vitamin essential for hair health, which nourishes and supports the growth of strong, lustrous hair.',
     },
     {
         productImage: '/products/product_four.svg',
         productName: 'MamaZee Bamboo Hair Comb',
-        productAmount: 'NGN 22,100'
+        productAmount: 'NGN 22,100',
+        productDescription: 'Another key component in our Hair Renewal Elixir is Horsetail Extract, a natural source of silica that helps strengthen hair strands, reduce brittleness, and enhance overall hair texture. Additionally, the elixir includes Biotin, a vitamin essential for hair health, which nourishes and supports the growth of strong, lustrous hair.',
     }
 ]
 
