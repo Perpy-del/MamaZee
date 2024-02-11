@@ -33,7 +33,7 @@ const LargeScreenAccountComponent = (props: Props) => {
             <ShoppingBag size={20} />
             <h3 className='3xl:text-xl'>My orders</h3>
           </div>
-          <TabsTrigger value="order-history" className="mt-5 mb-3 3xl:text-lg">
+          <TabsTrigger id='order' value="order-history" className="mt-5 mb-3 3xl:text-lg">
             Order history
           </TabsTrigger>
         </div>
@@ -42,7 +42,7 @@ const LargeScreenAccountComponent = (props: Props) => {
             <Heart size={20} />
             <h3 className='3xl:text-xl'>Wishlist</h3>
           </div>
-          <TabsTrigger value="saved-items" className="mt-5 mb-3 3xl:text-lg">
+          <TabsTrigger id='wish' value="saved-items" className="mt-5 mb-3 3xl:text-lg">
             Saved items
           </TabsTrigger>
         </div>
