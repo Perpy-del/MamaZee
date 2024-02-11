@@ -40,7 +40,7 @@ export function AccountDropdownComponent() {
           <span className="absolute w-[100%] h-[2px] bg-mzGold left-0 bottom-0 -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500"></span>
         </span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-48 rounded">
+      <DropdownMenuContent className="md:w-36 lg:w-40 rounded">
         <DropdownMenuLabel>
           <Link href="/auth/login">
             <Button className="bg-mzGold text-mzLight h-10 w-full mt-5 mb-2 rounded hover:transition-transform hover:scale-105 hover:text-bold duration-500 ease-in-out hover:bg-[#daab2d]">
