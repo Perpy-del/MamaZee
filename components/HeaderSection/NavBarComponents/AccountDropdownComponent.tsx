@@ -5,12 +5,7 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Heart, ShoppingBag } from 'lucide-react';
@@ -50,15 +45,24 @@ export function AccountDropdownComponent() {
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup className="py-4">
-          <DropdownMenuItem className="flex gap-5 items-center pb-3 cursor-pointer" onClick={() => router.push('/account')}>
+          <DropdownMenuItem
+            className="flex gap-5 items-center pb-3 cursor-pointer"
+            onClick={() => router.push('/account/acct')}
+          >
             <FaUser />
             <h3 className="3xl:text-xl">Account</h3>
           </DropdownMenuItem>
-          <DropdownMenuItem className="flex gap-5 items-center pb-3 cursor-pointer" onClick={() => router.push('/account/#order')}>
+          <DropdownMenuItem
+            className="flex gap-5 items-center pb-3 cursor-pointer"
+            onClick={() => router.push('/account/#order')}
+          >
             <ShoppingBag size={20} />
             <h3 className="3xl:text-xl">Orders</h3>
           </DropdownMenuItem>
-          <DropdownMenuItem className="flex gap-5 items-center pb-3 cursor-pointer" onClick={() => router.push('/account/#wish')}>
+          <DropdownMenuItem
+            className="flex gap-5 items-center pb-3 cursor-pointer"
+            onClick={() => router.push('/account/#wish')}
+          >
             <Heart size={20} />
             <h3 className="3xl:text-xl">Wishlist</h3>
           </DropdownMenuItem>

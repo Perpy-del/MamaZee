@@ -6,7 +6,6 @@ import { IoMdCart } from 'react-icons/io';
 import Link from 'next/link';
 import NavLogo from './NavLogo';
 import { usePathname } from 'next/navigation';
-import { FaUser } from 'react-icons/fa';
 import { AccountDropdownComponent } from './AccountDropdownComponent';
 
 type Props = {};
