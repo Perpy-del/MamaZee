@@ -58,8 +58,8 @@ const ScrollButton = (props: Props) => {
             <ArrowUp size={20} />
           </Button>
         </TooltipTrigger>
-        <TooltipContent>
-          <p>Add to library</p>
+        <TooltipContent className='bg-[#888]'>
+          <p className='font-bold'>Back to Top</p>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
