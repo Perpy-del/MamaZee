@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { navData } from '../data';
 import { IoMdCart } from 'react-icons/io';
@@ -7,11 +5,12 @@ import Link from 'next/link';
 import NavLogo from './NavLogo';
 import { usePathname } from 'next/navigation';
 import { AccountDropdownComponent } from './AccountDropdownComponent';
+import HomeDropdownComponent from './HomeDropdownComponent';
 
 type Props = {};
 
-const DesktopNavBar = (props: Props) => {
-  const pathname = usePathname();
+const DesktopNavBar = async(props: Props) => {
+  const pathname = usePathname()
 
   return (
     <div className="pt-[15px] sm:px-[10px] flex items-center justify-between md:pr-[60px]">
@@ -38,6 +37,7 @@ const DesktopNavBar = (props: Props) => {
             )}
           </React.Fragment>
         ))}
+        {/* <HomeDropdownComponent /> */}
         <AccountDropdownComponent />
         <Link href="/cart">
           <div

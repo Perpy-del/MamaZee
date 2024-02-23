@@ -1,13 +1,20 @@
-'use client'
-
 import React from 'react'
-import RegisterLogin from '../../../components/Auth/RegisterLogin/RegisterLogin'
+import RegisterLogin from './form'
 import RightSideSection from '../../../components/Auth/RegisterLogin/RightSideSection'
+import { LoginRegisterInterface } from '@/interfaces/loginInterface'
+// import { getServerSession } from 'next-auth'
+// import { redirect } from 'next/navigation'
 
-const Login = () => {
+const Login = (props: LoginRegisterInterface) => {
+  // const session = await getServerSession()
+
+  // if (session) {
+  //   redirect("/")
+  // }
+
   return (
     <div className='flex'>
-        <RegisterLogin topText="It's nice to see you again." bottomText="Log in to Mamazee" buttonText={'Log in'}  />
+        <RegisterLogin {...props} />
         <RightSideSection />
     </div>
   )

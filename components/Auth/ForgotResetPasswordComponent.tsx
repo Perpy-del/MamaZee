@@ -19,10 +19,9 @@ interface ForgotResetInterface {
 }
 
 const ForgotResetPasswordComponent = (props: ForgotResetInterface) => {
-  const [resetPasswordActive, setResetPasswordActive] =
-    React.useState<boolean>(true);
   const outerTheme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
+  const [resetPasswordActive, setResetPasswordActive] = React.useState<boolean>(true);
 
   const handleClickShowPassword = () => setShowPassword(show => !show);
 

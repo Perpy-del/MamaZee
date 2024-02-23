@@ -1,0 +1,16 @@
+import {useMamazeeStoreState, useMamazeeStoreActions} from "../store/MamazeeStore";
+
+export default function useMamazeeHook() {
+    const userEmail = useMamazeeStoreState(state => state.userEmail);
+    const setUserEmail = useMamazeeStoreActions(actions => actions.setUserEmail);
+    const userName = useMamazeeStoreState(state => state.userName);
+    const setUserName = useMamazeeStoreActions(actions => actions.setUserName);
+
+    return {
+        userEmail,
+        setUserEmail,
+        userName,
+        setUserName
+    }
+}
+
