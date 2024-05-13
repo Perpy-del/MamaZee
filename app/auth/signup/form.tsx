@@ -1,12 +1,12 @@
 'use client';
 
-import React, { FormEvent } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import {
   FormControl,
   FormHelperText,
   TextField,
-  CircularProgress
+  CircularProgress,
 } from '@mui/material';
 import { customTheme } from '@/components/Auth/RegisterLogin/customTheme';
 import { ThemeProvider, useTheme } from '@mui/material/styles';
@@ -18,23 +18,16 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import { AlertTriangle } from 'lucide-react';
 import { LoginRegisterInterface } from '@/interfaces/loginInterface';
-import { validateEmail, validatePassword } from '@/lib/utils';
 import FormComponent from '@/components/Auth/RegisterLogin/Form';
-import { useRouter } from 'next/navigation';
-import { ToastAction } from "@/components/ui/toast"
-import { useToast } from "@/components/ui/use-toast"
+import { useMamazeeHook } from '@/hooks/useMamazeeHook';
 
 const RegisterLogin = (props: LoginRegisterInterface) => {
-  const router = useRouter();
-  const { toast } = useToast();
+  const {email, password, handleRegisterUser, handleEmail, handlePassword, isEmailValid, isPasswordValid, loading} = useMamazeeHook();
+
   const outerTheme = useTheme();
 
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
-  const [isEmailValid, setIsEmailValid] = React.useState<boolean>(true);
-  const [isPasswordValid, setIsPasswordValid] = React.useState<boolean>(true);
-  const [email, setEmail] = React.useState<string>('');
-  const [password, setPassword] = React.useState<string>('');
-  const [loading, setLoading] = React.useState<boolean>(false);
+
 
   const handleClickShowPassword = () => setShowPassword(show => !show);
 
@@ -42,71 +35,6 @@ const RegisterLogin = (props: LoginRegisterInterface) => {
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
-  };
-
-  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputEmail = e.target.value;
-    setEmail(inputEmail);
-    setIsEmailValid(validateEmail(inputEmail));
-  };
-
-  const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputPassword = e.target.value;
-    setPassword(inputPassword);
-    setIsPasswordValid(validatePassword(inputPassword));
-  };
-
-  const handleRegisterUser = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (email === '' || password === '') {
-      toast({
-        variant: "destructive",
-        title: "Email and Password cannot be empty.",
-        description: "Please enter a valid email address and password before you can login",
-        action: <ToastAction className="" altText="Try again">Try again</ToastAction>,
-      })
-      return;
-    }
-    setLoading(true);
-    try {
-      const res = await fetch('/api/auth/register', {
-        method: 'POST',
-        body: JSON.stringify({
-          email,
-          password,
-        })
-      });
-      const responseData = await res.json();
-      console.log("RESPONSE DATA: ", responseData);
-      console.log("RESPONSE DATA STATUS: ", responseData?.status);
-      setLoading(false);
-      if (responseData.status === 200) {
-        toast({
-          variant: "success",
-          title: "Account Created Successfully",
-          description: "You have successfully created an account. Please log in!",
-          action: <ToastAction className="" altText="Success">Log in</ToastAction>,
-        })
-        router.push("/auth/login");
-      }
-      if (responseData.status !== 200) {
-        toast({
-          variant: "destructive",
-          title: "Uh oh! Something went wrong.",
-          description: responseData.message,
-          action: <ToastAction className="" altText="Try again">Try again</ToastAction>,
-        })
-        return;
-      }
-    } catch (error) {
-      console.error(error);
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description: "There was a problem with your request.",
-        action: <ToastAction className="" altText="Try again">Try again</ToastAction>,
-      })
-    }
   };
 
   return (
@@ -221,25 +149,31 @@ const RegisterLogin = (props: LoginRegisterInterface) => {
               </FormControl>
             </ThemeProvider>
           </div>
-        
-        <div className="w-full text-center">
-          <Button
-            className={`sm:h-10 2xl:h-12 rounded mt-[20px] mb-[10px] sm:text-[16px] 2xl:text-[20px] w-full text-mzLight ${
-              isEmailValid && isPasswordValid
-                ? 'bg-mzGold font-bold text-mzLight hover:bg-[#daab2d] cursor-pointer'
-                : 'text-mzLight font-bold bg-[#555249] hover:bg-[#555249] cursor-no-drop'
-            }`}
-            type="submit"
-          >
-            Sign up {loading && <CircularProgress style={{marginLeft: "20px", color: "#FFF"}} size={20}/>}
-          </Button>
-          <h4 className="text-[#BFBBB1] sm:text-[14px] 2xl:text-[20px]">
-            Already have an account?{' '}
-            <span className="text-mzTextLight hover:underline">
-              <Link href="/auth/login">Log in</Link>
-            </span>
-          </h4>
-        </div>
+
+          <div className="w-full text-center">
+            <Button
+              className={`sm:h-10 2xl:h-12 rounded mt-[20px] mb-[10px] sm:text-[16px] 2xl:text-[20px] w-full text-mzLight ${
+                isEmailValid && isPasswordValid
+                  ? 'bg-mzGold font-bold text-mzLight hover:bg-[#daab2d] cursor-pointer'
+                  : 'text-mzLight font-bold bg-[#555249] hover:bg-[#555249] cursor-no-drop'
+              }`}
+              type="submit"
+            >
+              Sign up{' '}
+              {loading && (
+                <CircularProgress
+                  style={{ marginLeft: '20px', color: '#FFF' }}
+                  size={20}
+                />
+              )}
+            </Button>
+            <h4 className="text-[#BFBBB1] sm:text-[14px] 2xl:text-[20px]">
+              Already have an account?{' '}
+              <span className="text-mzTextLight hover:underline">
+                <Link href="/auth/login">Log in</Link>
+              </span>
+            </h4>
+          </div>
         </div>
       </FormComponent>
     </div>

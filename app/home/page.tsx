@@ -1,3 +1,5 @@
+'use client';
+
 import Explore from '@/components/Explore';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/HeaderSection/HeroSection';
@@ -6,13 +8,17 @@ import MobileNavBar from '@/components/HeaderSection/NavBarComponents/MobileNavB
 import NavLogo from '@/components/HeaderSection/NavBarComponents/NavLogo';
 import { navData } from '@/components/HeaderSection/data';
 import Products from '@/components/Products';
+import { useMamazeeHook } from '@/hooks/useMamazeeHook';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IoMdCart } from 'react-icons/io';
 
 export default function Home() {
+  const { loggedInUser } = useMamazeeHook();
   const pathname = usePathname();
+
+  console.log("Logged in user: ", loggedInUser);
 
   return (
     <main className="">

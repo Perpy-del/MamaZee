@@ -8,16 +8,23 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useMamazeeHook } from '@/hooks/useMamazeeHook';
 import { Heart, ShoppingBag } from 'lucide-react';
-import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { FaUser } from 'react-icons/fa';
 
 const HomeDropdownComponent = () => {
+  const { loggedInUser } = useMamazeeHook();
+  const {handleLogOut} = useMamazeeHook();
+  
   const pathname = usePathname();
   const router = useRouter();
+  
+  const userName = loggedInUser.name.split(' ')[0] || loggedInUser.email.split('@')[0];
+
+  console.log(userName);
 
   return (
     <DropdownMenu>
@@ -29,7 +36,7 @@ const HomeDropdownComponent = () => {
             }`}
           >
             <FaUser size={12} />
-            <h4>Hi, Abraham</h4>
+            <h4>Hi, {userName}</h4>
           </div>
           <span className="absolute w-[100%] h-[2px] bg-mzGold left-0 bottom-0 -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500"></span>
         </span>
@@ -62,9 +69,7 @@ const HomeDropdownComponent = () => {
         <DropdownMenuLabel>
           <Button
             className="bg-transparent text-mzGold border border-mzGold h-10 w-full mt-5 mb-2 rounded hover:transition-transform hover:scale-105 hover:text-bold duration-500 ease-in-out hover:bg-[#daab2d] hover:text-mzLight"
-            onClick={() => {
-              signOut();
-            }}
+            onClick={handleLogOut}
           >
             Log out
           </Button>

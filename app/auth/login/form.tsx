@@ -1,39 +1,34 @@
 'use client'
 
-import React, { FormEvent } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import {
   FormControl,
   FormHelperText,
   TextField,
-  Typography,
+  CircularProgress,
 } from '@mui/material';
 import { customTheme } from '@/components/Auth/RegisterLogin/customTheme';
 import { ThemeProvider, useTheme } from '@mui/material/styles';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { registerLoginData } from '@/components/Auth/RegisterLogin/data';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import { AlertTriangle } from 'lucide-react';
-// import { Signup, SignupSchema } from '@/schemas/users';
 import { LoginRegisterInterface } from '@/interfaces/loginInterface';
-import { validateEmail, validatePassword } from '@/lib/utils';
-import { signIn } from 'next-auth/react';
-import { redirect } from 'next/dist/server/api-utils';
 import FormComponent from '@/components/Auth/RegisterLogin/Form';
-import { getServerSession } from 'next-auth';
+import { useRouter } from 'next/navigation';
+import { useMamazeeHook } from '@/hooks/useMamazeeHook';
 
 const RegisterLogin = (props: LoginRegisterInterface) => {
+  const {email, password, handleEmail, handlePassword, handleLoginUser, isEmailValid, isPasswordValid, loading} = useMamazeeHook();
+
+  const router = useRouter();
   const outerTheme = useTheme();
 
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
-  const [isEmailValid, setIsEmailValid] = React.useState<boolean>(true);
-  const [isPasswordValid, setIsPasswordValid] = React.useState<boolean>(true);
-  const [email, setEmail] = React.useState<string>('');
-  const [password, setPassword] = React.useState<string>('');
 
   const handleClickShowPassword = () => setShowPassword(show => !show);
 
@@ -41,28 +36,6 @@ const RegisterLogin = (props: LoginRegisterInterface) => {
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
     event.preventDefault();
-  };
-
-  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputEmail = e.target.value;
-    setEmail(inputEmail);
-    setIsEmailValid(validateEmail(inputEmail));
-  };
-
-  const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputPassword = e.target.value;
-    setPassword(inputPassword);
-    setIsPasswordValid(validatePassword(inputPassword));
-  };
-
-  const handleLoginUser = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const res = await signIn('credentials', {
-      email: email,
-      password: password,
-      redirect: false,
-    });
-    console.log('RESPONSE: ', { res });
   };
 
   return (
@@ -182,7 +155,13 @@ const RegisterLogin = (props: LoginRegisterInterface) => {
             }`}
             type="submit"
           >
-            Log in
+            Log in{' '}
+              {loading && (
+                <CircularProgress
+                  style={{ marginLeft: '20px', color: '#FFF' }}
+                  size={20}
+                />
+              )}
           </Button>
           <h4 className="text-[#BFBBB1] sm:text-[14px] 2xl:text-[20px]">
             Already have an account?{' '}
