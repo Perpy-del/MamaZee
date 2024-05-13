@@ -10,15 +10,19 @@ import { navData } from '@/components/HeaderSection/data';
 import Products from '@/components/Products';
 import { useMamazeeHook } from '@/hooks/useMamazeeHook';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import React, { useEffect } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import React from 'react';
 import { IoMdCart } from 'react-icons/io';
 
 export default function Home() {
+  const router = useRouter();
   const { loggedInUser } = useMamazeeHook();
   const pathname = usePathname();
 
   console.log("Logged in user: ", loggedInUser);
+  if (!loggedInUser) {
+    router.push('/auth/login');
+  }
 
   return (
     <main className="">

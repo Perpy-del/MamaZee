@@ -2,8 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import { registerLoginData } from '@/components/Auth/RegisterLogin/data';
 import { LoginRegisterInterface } from '@/interfaces/loginInterface';
+import { useMamazeeHook } from '@/hooks/useMamazeeHook';
 
 const FormComponent = (props: LoginRegisterInterface) => {
+  const {handleLoginWithProvider} = useMamazeeHook();
 
   return (
     <form
@@ -25,7 +27,7 @@ const FormComponent = (props: LoginRegisterInterface) => {
                 className="md:bg-mzTextBlack sm:bg-mzBlack border border-[#504E48] border-solid rounded md:w-[95px] sm:w-1/4 h-[40px] md:hover:bg-mzBlack inline-flex items-center justify-center cursor-pointer"
                 title={`Log in with ${data.title}`}
               >
-                <button>
+                <button onClick={handleLoginWithProvider}>
                   <Image
                     src={data.image}
                     alt={data.name}

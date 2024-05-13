@@ -22,7 +22,7 @@ const HomeDropdownComponent = () => {
   const pathname = usePathname();
   const router = useRouter();
   
-  const userName = loggedInUser.name.split(' ')[0] || loggedInUser.email.split('@')[0];
+  const userName = loggedInUser?.displayName?.split(' ')[0] || loggedInUser?.email.split('@')[0];
 
   console.log(userName);
 
