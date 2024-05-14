@@ -53,7 +53,9 @@ export const customTheme = (outerTheme: Theme) =>
               }
             },
             '&:focus-within input': {
-              paddingBottom: '0',
+              paddingBottom: '10px',
+              backgroundColor: '#0D0D0D',
+              color: '#EEEEEE',
               '@media (min-width: 2560px)': {
                 padding: '20px 0'
               }
