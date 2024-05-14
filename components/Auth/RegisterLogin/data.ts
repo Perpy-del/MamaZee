@@ -12,11 +12,17 @@ export const registerLoginData = [
         size: 20
     },
     {
-        image: '/amazon.svg',
-        title: 'Amazon',
-        name: 'Amazon',
-        size: 23
+        image: '/twitter_icon.svg',
+        title: 'Twitter/X',
+        name: 'Twitter',
+        size: 16
     },
+    // {
+    //     image: '/amazon.svg',
+    //     title: 'Amazon',
+    //     name: 'Amazon',
+    //     size: 23
+    // },
     {
         image: '/yahoo.svg',
         title: 'Yahoo',

@@ -2,11 +2,11 @@
 
 import { ToastAction } from '@/components/ui/toast';
 import { toast } from '@/components/ui/use-toast';
-import { account } from '@/lib/appWrite';
+// import { account } from '@/lib/appWrite';
 import { auth } from '@/app/firebase/config';
 import { validateEmail, validatePassword } from '@/lib/utils';
-import { ID, OAuthProvider } from 'appwrite';
-import { confirmPasswordReset, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+// import { ID, OAuthProvider } from 'appwrite';
+import { FacebookAuthProvider, GoogleAuthProvider, TwitterAuthProvider, OAuthProvider, confirmPasswordReset, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, signInWithPopup } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import React, { FormEvent, createContext } from 'react';
 
@@ -24,6 +24,7 @@ const MamazeeContextProvider = ({
   const [newPassword, setNewPassword] = React.useState<string>('');
   const [confirmPassword, setConfirmPassword] = React.useState<string>('');
   const [loading, setLoading] = React.useState<boolean>(false);
+  const [providerLoading, setProviderLoading] = React.useState<boolean>(false);
   const [isEmailValid, setIsEmailValid] = React.useState<boolean>(true);
   const [isPasswordValid, setIsPasswordValid] = React.useState<boolean>(true);
   const [loggedInUser, setLoggedInUser] = React.useState<any>(null);
@@ -123,17 +124,51 @@ const MamazeeContextProvider = ({
     }
   };
 
-  const handleLoginWithProvider = async () => {
+  const handleLoginWithProvider = async (checkProvider: string) => {
+    setProviderLoading(true);
+    let provider: any;
+    if (checkProvider === 'Google') {
+      provider = new GoogleAuthProvider();
+      provider.setCustomParameters({
+        prompt: 'select_account',
+      });
+    } else if (checkProvider === 'Facebook') {
+      provider = new FacebookAuthProvider();
+      provider.setCustomParameters({
+        prompt: 'select_account'
+      });
+    } else if (checkProvider === 'Twitter') {
+      provider = new TwitterAuthProvider();
+      provider.setCustomParameters({
+        prompt: 'select_account'
+      });
+    } else if (checkProvider === 'Yahoo') {
+      provider = new OAuthProvider('yahoo.com');
+      provider.setCustomParameters({
+        prompt: 'login'
+      });
+    }
     try {
-      const res = account.createOAuth2Session(
-        OAuthProvider.Google, // provider
-        'http://localhost:3000/home', // redirect here on success
-        'http://localhost:3000/auth/login' // redirect here on failure
-      );
-      setLoggedInUser(await account.get());
-      console.log('RESPONSE: ', res);
+      const result = await signInWithPopup(auth, provider);
+      console.log('RESPONSE: ', result);
+      if (result) {
+        toast({
+          variant: 'success',
+          title: 'Account Created Successfully',
+          description:
+            'You have successfully created an account. Welcome to MamaZee!',
+          action: (
+            <ToastAction className="" altText="Success" onClick={() => router.push('/home')}>
+              Home
+            </ToastAction>
+          ),
+        });
+        router.push('/home');
+      }
     } catch (error) {
       console.error(error);
+    } finally {
+      setProviderLoading(false);
     }
   };
 
@@ -326,7 +361,8 @@ const MamazeeContextProvider = ({
         handleForgotPassword,
         handleResetPassword,
         resetPasswordActive,
-        passwordDoesNotMatch
+        passwordDoesNotMatch,
+        providerLoading
       }}
     >
       {children}
