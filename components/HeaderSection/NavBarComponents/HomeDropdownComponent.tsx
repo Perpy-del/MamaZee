@@ -16,15 +16,11 @@ import { useRouter } from 'next/navigation';
 import { FaUser } from 'react-icons/fa';
 
 const HomeDropdownComponent = () => {
-  const { loggedInUser } = useMamazeeHook();
+  const { userName } = useMamazeeHook();
   const {handleLogOut} = useMamazeeHook();
   
   const pathname = usePathname();
   const router = useRouter();
-  
-  const userName = loggedInUser?.displayName?.split(' ')[0] || loggedInUser?.email.split('@')[0];
-
-  console.log(userName);
 
   return (
     <DropdownMenu>

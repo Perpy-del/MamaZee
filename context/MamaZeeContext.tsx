@@ -337,6 +337,8 @@ const MamazeeContextProvider = ({
     }
   };
 
+  const userName = loggedInUser?.displayName?.split(' ')[0] || loggedInUser?.email.split('@')[0];
+
   return (
     <MamazeeContext.Provider
       value={{
@@ -362,7 +364,8 @@ const MamazeeContextProvider = ({
         handleResetPassword,
         resetPasswordActive,
         passwordDoesNotMatch,
-        providerLoading
+        providerLoading,
+        userName
       }}
     >
       {children}

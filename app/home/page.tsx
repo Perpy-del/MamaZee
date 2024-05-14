@@ -9,22 +9,34 @@ import NavLogo from '@/components/HeaderSection/NavBarComponents/NavLogo';
 import { navData } from '@/components/HeaderSection/data';
 import Products from '@/components/Products';
 import { useMamazeeHook } from '@/hooks/useMamazeeHook';
+import { User } from 'firebase/auth';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React from 'react';
 import { IoMdCart } from 'react-icons/io';
+import { auth } from '../firebase/config';
+import { CircularProgress } from '@mui/material';
 
 export default function Home() {
   const router = useRouter();
-  const { loggedInUser } = useMamazeeHook();
   const pathname = usePathname();
 
-  console.log("Logged in user: ", loggedInUser);
-  if (!loggedInUser) {
-    router.push('/auth/login');
-  }
+  const [loggedInUser, setLoggedInUser] = React.useState<User | null>(null);
 
-  return (
+  React.useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      if (user) {
+        setLoggedInUser(user);
+      } else {
+        setLoggedInUser(null);
+        router.push('/auth/login');
+      }
+    });
+
+    return () => unsubscribe();
+  }, [router]);
+
+  return loggedInUser ? (
     <main className="">
       <div>
         <div className="lg:pr-[60px] lg:pl-[60px] md:pr-[0px] md:pl-[35px] bg-[#0D0D0D] text-[#FFFFFF] h-[975px] md:h-[500px] mdl:h-[950px] lg:h-[550px] sm:h-[810px] smd:h-[920px] xl:h-[600px] 2xl:h-[850px] xl:pr-[10px]">
@@ -77,5 +89,9 @@ export default function Home() {
         <Footer />
       </div>
     </main>
+  ) : (
+    <div className="h-[75vh] flex items-center justify-center">
+      <CircularProgress size={100} style={{ color: '#FFF' }} />
+    </div>
   );
 }

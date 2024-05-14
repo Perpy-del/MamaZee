@@ -1,14 +1,12 @@
 import React from 'react'
-import RegisterLogin from './form'
+import RegisterLogin from '../../../components/Auth/RegisterLogin/SignUpForm'
 import RightSideSection from '../../../components/Auth/RegisterLogin/RightSideSection'
-import { LoginRegisterInterface } from '@/interfaces/loginInterface'
-import {redirect} from 'next/navigation'
 
-const Signup = async (props: LoginRegisterInterface) => {
+const Signup = async () => {
 
   return (
     <div className='flex'>
-        <RegisterLogin {...props} />
+        <RegisterLogin />
         <RightSideSection />
     </div>
   )

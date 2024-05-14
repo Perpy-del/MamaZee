@@ -1,13 +1,12 @@
 import React from 'react'
-import RegisterLogin from './form'
+import RegisterLogin from '../../../components/Auth/RegisterLogin/LogInForm'
 import RightSideSection from '../../../components/Auth/RegisterLogin/RightSideSection'
-import { LoginRegisterInterface } from '@/interfaces/loginInterface'
 
-const Login = (props: LoginRegisterInterface) => {
+const Login = () => {
 
   return (
     <div className='flex'>
-        <RegisterLogin {...props} />
+        <RegisterLogin />
         <RightSideSection />
     </div>
   )

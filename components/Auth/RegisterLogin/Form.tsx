@@ -3,9 +3,10 @@ import Image from 'next/image';
 import { registerLoginData } from '@/components/Auth/RegisterLogin/data';
 import { LoginRegisterInterface } from '@/interfaces/loginInterface';
 import { useMamazeeHook } from '@/hooks/useMamazeeHook';
+import { CircularProgress } from '@mui/material';
 
 const FormComponent = (props: LoginRegisterInterface) => {
-  const {handleLoginWithProvider} = useMamazeeHook();
+  const { handleLoginWithProvider, providerLoading } = useMamazeeHook();
 
   return (
     <form
@@ -27,15 +28,22 @@ const FormComponent = (props: LoginRegisterInterface) => {
                 className="md:bg-mzTextBlack sm:bg-mzBlack border border-[#504E48] border-solid rounded md:w-[95px] sm:w-1/4 h-[40px] md:hover:bg-mzBlack inline-flex items-center justify-center cursor-pointer"
                 title={`Log in with ${data.title}`}
               >
-                <button onClick={() => handleLoginWithProvider(data.name)}>
-                  <Image
-                    src={data.image}
-                    alt={data.name}
-                    width={data.size}
-                    height={data.size}
-                    priority
+                {providerLoading ? (
+                  <CircularProgress
+                    style={{ color: '#FFF' }}
+                    size={20}
                   />
-                </button>
+                ) : (
+                  <button onClick={() => handleLoginWithProvider(data.name)}>
+                    <Image
+                      src={data.image}
+                      alt={data.name}
+                      width={data.size}
+                      height={data.size}
+                      priority
+                    />
+                  </button>
+                )}
               </div>
             );
           })}
@@ -51,7 +59,6 @@ const FormComponent = (props: LoginRegisterInterface) => {
       </div>
       {/* Bottom */}
       {props.children}
-      
     </form>
   );
 };
