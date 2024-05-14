@@ -6,7 +6,7 @@ import { account } from '@/lib/appWrite';
 import { auth } from '@/app/firebase/config';
 import { validateEmail, validatePassword } from '@/lib/utils';
 import { ID, OAuthProvider } from 'appwrite';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { confirmPasswordReset, createUserWithEmailAndPassword, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import React, { FormEvent, createContext } from 'react';
 
@@ -19,11 +19,16 @@ const MamazeeContextProvider = ({
 }) => {
   const router = useRouter();
   const [email, setEmail] = React.useState<string>('');
+  const [forgotPasswordEmail, setForgotPasswordEmail] = React.useState<string>('');
   const [password, setPassword] = React.useState<string>('');
+  const [newPassword, setNewPassword] = React.useState<string>('');
+  const [confirmPassword, setConfirmPassword] = React.useState<string>('');
   const [loading, setLoading] = React.useState<boolean>(false);
   const [isEmailValid, setIsEmailValid] = React.useState<boolean>(true);
   const [isPasswordValid, setIsPasswordValid] = React.useState<boolean>(true);
   const [loggedInUser, setLoggedInUser] = React.useState<any>(null);
+  const [resetPasswordActive, setResetPasswordActive] = React.useState<boolean>(false);
+  const [passwordDoesNotMatch, setPasswordDoesNotMatch] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -39,10 +44,29 @@ const MamazeeContextProvider = ({
     setIsEmailValid(validateEmail(inputEmail));
   };
 
+  const handleForgotPasswordEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputEmail = e.target.value;
+    setForgotPasswordEmail(inputEmail);
+    setIsEmailValid(validateEmail(inputEmail));
+    setResetPasswordActive(validateEmail(inputEmail));
+  };
+
   const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputPassword = e.target.value;
     setPassword(inputPassword);
     setIsPasswordValid(validatePassword(inputPassword));
+  };
+
+  const handleNewPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputPassword = e.target.value;
+    setNewPassword(inputPassword);
+    setIsPasswordValid(validatePassword(inputPassword));
+  };
+
+  const handleConfirmPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputPassword = e.target.value;
+    setConfirmPassword(inputPassword);
+    setResetPasswordActive(validatePassword(inputPassword));
   };
 
   const handleRegisterUser = async (e: FormEvent<HTMLFormElement>) => {
@@ -186,6 +210,73 @@ const MamazeeContextProvider = ({
     }
   };
 
+  const handleForgotPassword = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      validateEmail(forgotPasswordEmail) ? setResetPasswordActive(true) : setResetPasswordActive(false);
+      await sendPasswordResetEmail(auth, forgotPasswordEmail);
+      toast({
+        variant: 'success',
+        title: 'Reset Password Email Sent',
+        description: 'Please check your email for further instructions!',
+        action: (
+          <ToastAction
+            className=""
+            altText="Success"
+            onClick={() => router.push('/auth/forgot-password/email-sent')}
+          >
+            Email Sent
+          </ToastAction>
+        ),
+      });
+      router.push('/auth/forgot-password/email-sent')
+      setEmail('');
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const handleResetPassword = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      if (newPassword !== confirmPassword) {
+        setPasswordDoesNotMatch(true);
+        return;
+      }
+      setPasswordDoesNotMatch(false);
+      const urlParams = new URLSearchParams(window.location.search);
+      const oobCode = urlParams.get('oobCode') as string;
+      console.log(oobCode);
+
+      await confirmPasswordReset(auth, oobCode, confirmPassword);
+      toast({
+        variant: 'success',
+        title: 'Password Has Been Reset Successfully',
+        description: 'Please log into your account with your new password!',
+        action: (
+          <ToastAction
+            className=""
+            altText="Success"
+            onClick={() => router.push('/auth/login')}
+          >
+            Login
+          </ToastAction>
+        ),
+      });
+      router.push('/auth/login')
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setLoading(false);
+      setPassword('');
+      setConfirmPassword('');
+    }
+  }
+
   const handleLogOut = async () => {
     try {
       // await account.deleteSession('current');
@@ -218,14 +309,24 @@ const MamazeeContextProvider = ({
         handleLoginUser,
         handleEmail,
         handlePassword,
+        handleNewPassword,
+        handleConfirmPassword,
+        handleForgotPasswordEmail,
         email,
+        forgotPasswordEmail,
         password,
+        newPassword,
+        confirmPassword,
         isEmailValid,
         isPasswordValid,
         loading,
         handleLogOut,
         loggedInUser,
         handleLoginWithProvider,
+        handleForgotPassword,
+        handleResetPassword,
+        resetPasswordActive,
+        passwordDoesNotMatch
       }}
     >
       {children}

@@ -1,17 +1,23 @@
 'use client';
 
 import React from 'react';
-import { FormControl, FormHelperText, TextField } from '@mui/material';
+import {
+  CircularProgress,
+  FormControl,
+  FormHelperText,
+  TextField,
+} from '@mui/material';
 import { ThemeProvider, useTheme } from '@mui/material/styles';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { customTheme } from '../Auth/RegisterLogin/customTheme';
 import Image from 'next/image';
-import { MoveLeft } from 'lucide-react';
+import { MoveLeft, AlertTriangle } from 'lucide-react';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
+import { useMamazeeHook } from '@/hooks/useMamazeeHook';
 
 interface ForgotResetInterface {
   topText: string;
@@ -19,11 +25,27 @@ interface ForgotResetInterface {
 }
 
 const ForgotResetPasswordComponent = (props: ForgotResetInterface) => {
+  const {
+    resetPasswordActive,
+    forgotPasswordEmail,
+    handleForgotPasswordEmail,
+    isEmailValid,
+    loading,
+    handleNewPassword,
+    handleForgotPassword,
+    handleConfirmPassword,
+    handleResetPassword,
+    isPasswordValid,
+    newPassword,
+    confirmPassword,
+    passwordDoesNotMatch
+  } = useMamazeeHook();
   const outerTheme = useTheme();
   const [showPassword, setShowPassword] = React.useState(false);
-  const [resetPasswordActive, setResetPasswordActive] = React.useState<boolean>(true);
+  const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword(show => !show);
+  const handleClickShowConfirmPassword = () => setShowConfirmPassword(show => !show);
 
   const handleMouseDownPassword = (
     event: React.MouseEvent<HTMLButtonElement>
@@ -53,26 +75,47 @@ const ForgotResetPasswordComponent = (props: ForgotResetInterface) => {
         </h3>
         <ThemeProvider theme={customTheme(outerTheme)}>
           <FormControl fullWidth>
-            {props.topText === 'Forgot password?' && <TextField
-              id="standard-basic"
-              label="Email address"
-              variant="standard"
-              style={{
-                marginBottom: '20px',
-                boxSizing: 'border-box',
-              }}
-              fullWidth={false}
-            />}
+            {props.topText === 'Forgot password?' && (
+              <TextField
+                id="standard-basic"
+                label="Email address"
+                variant="standard"
+                value={forgotPasswordEmail}
+                onChange={handleForgotPasswordEmail}
+                style={{
+                  marginBottom: '20px',
+                  boxSizing: 'border-box',
+                }}
+                fullWidth={false}
+              />
+            )}
+            {!isEmailValid && (
+              <FormHelperText
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: '5px',
+                  color: '#E59898',
+                  marginTop: '5px',
+                  marginLeft: '0',
+                }}
+              >
+                <AlertTriangle size={15} />
+                Please enter a valid email address
+              </FormHelperText>
+            )}
             {props.topText === 'Reset your password' && (
               <TextField
                 id="standard-basic"
                 label="New Password"
                 type={showPassword ? 'text' : 'password'}
+                value={newPassword}
+                onChange={handleNewPassword}
                 variant="standard"
                 style={{
-                    marginBottom: '30px',
-                    boxSizing: 'border-box',
-                  }}
+                  marginBottom: '30px',
+                  boxSizing: 'border-box',
+                }}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
@@ -89,23 +132,42 @@ const ForgotResetPasswordComponent = (props: ForgotResetInterface) => {
                   ),
                 }}
               />
+            )}
+            {!isPasswordValid && (
+              <FormHelperText
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  color: '#E59898',
+                  marginTop: '5px',
+                  marginLeft: '0',
+                }}
+              >
+                <AlertTriangle size={40} />
+                Password must be minimum eight characters containing at least an
+                uppercase letter(e.g... A, B), a lowercase letter(e.g... a, z),
+                a number(e.g... 1, 4, 6) and a symbol(e.g... @, #, $)
+              </FormHelperText>
             )}
             {props.topText === 'Reset your password' && (
               <TextField
                 id="standard-basic"
                 label="Confirm Password"
-                type={showPassword ? 'text' : 'password'}
+                type={showConfirmPassword ? 'text' : 'password'}
+                value={confirmPassword}
+                onChange={handleConfirmPassword}
                 variant="standard"
                 style={{
-                    marginBottom: '30px',
-                    boxSizing: 'border-box',
-                  }}
+                  marginBottom: '30px',
+                  boxSizing: 'border-box',
+                }}
                 InputProps={{
                   endAdornment: (
                     <InputAdornment position="end">
                       <IconButton
                         aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
+                        onClick={handleClickShowConfirmPassword}
                         onMouseDown={handleMouseDownPassword}
                         edge="end"
                         sx={{ color: '#504E48' }}
@@ -117,29 +179,59 @@ const ForgotResetPasswordComponent = (props: ForgotResetInterface) => {
                 }}
               />
             )}
-            {/* <FormHelperText
-            id="my-helper-text"
-            style={{
-              color: '#BFBBB1',
-              paddingTop: '10px',
-              marginLeft: '0',
-            }}
-          >
-            <Link href="/auth/forgot-password" className="hover:underline">
-              Forgot Password?
-            </Link>
-          </FormHelperText> */}
+            {passwordDoesNotMatch && (
+              <FormHelperText
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  color: '#E59898',
+                  margin: '5px 0',
+                  marginLeft: '0',
+                }}
+              >
+                <AlertTriangle size={15} />
+                Passwords do not match. Please check that your Password and Confirm Password match.
+              </FormHelperText>
+            )}
           </FormControl>
         </ThemeProvider>
-        <Button
-          className={`${
-            resetPasswordActive
-              ? 'bg-mzGold hover:bg-[#daab2d] rounded'
-              : 'bg-[#555249] hover:bg-[#555249] cursor-no-drop rounded'
-          } sm:h-[38px] 3xl:h-[60px] text-mzLight 3xl:text-[30px] 3xl:mt-4`}
-        >
-          Reset password
-        </Button>
+        {props.topText === 'Forgot password?' && (
+          <Button
+            className={`${
+              resetPasswordActive
+                ? 'bg-mzGold hover:bg-[#daab2d] rounded'
+                : 'bg-[#555249] hover:bg-[#555249] cursor-no-drop rounded'
+            } sm:h-[38px] 3xl:h-[60px] text-mzLight 3xl:text-[30px] 3xl:mt-4`}
+            onClick={handleForgotPassword}
+          >
+            Reset password{' '}
+            {loading && (
+              <CircularProgress
+                style={{ marginLeft: '20px', color: '#FFF' }}
+                size={20}
+              />
+            )}
+          </Button>
+        )}
+        {props.topText === 'Reset your password' && (
+          <Button
+            className={`${
+              resetPasswordActive
+                ? 'bg-mzGold hover:bg-[#daab2d] rounded'
+                : 'bg-[#555249] hover:bg-[#555249] cursor-no-drop rounded'
+            } sm:h-[38px] 3xl:h-[60px] text-mzLight 3xl:text-[30px] 3xl:mt-4`}
+            onClick={handleResetPassword}
+          >
+            Reset password{' '}
+            {loading && (
+              <CircularProgress
+                style={{ marginLeft: '20px', color: '#FFF' }}
+                size={20}
+              />
+            )}
+          </Button>
+        )}
         <Link
           href="/auth/login"
           className="sm:mt-4 3xl:mt-10 flex items-center gap-4 hover:gap-2 hover:transition-all transform duration-1000 sm:w-[140px] 3xl:w-[250px]"
