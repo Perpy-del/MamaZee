@@ -7,10 +7,13 @@ import AccountTabComponent from '@/components/AccountSection/AccountTabComponent
 import DeliveryAddressTab from '@/components/AccountSection/DeliveryAddressTab';
 import OrderHistorySection from '@/components/AccountSection/OrderHistorySection';
 import SavedItemTabComponent from '@/components/AccountSection/SavedItemTabComponent';
+import { useMamazeeHook } from '@/hooks/useMamazeeHook';
 
 type Props = {};
 
 const LargeScreenAccountComponent = (props: Props) => {
+  const {handleLogOut} = useMamazeeHook();
+  
   return (
     <Tabs defaultValue="account" className="w-full sm:hidden md:flex">
       <TabsList className="md:w-full mdg:w-[500px] lg:w-[340px] 3xl:w-[650px] h-[500px] 3xl:h-[530px] mr-[25px] 3xl:mr-[50px] rounded border border-[#504E48] bg-transparent">
@@ -46,7 +49,7 @@ const LargeScreenAccountComponent = (props: Props) => {
             Saved items
           </TabsTrigger>
         </div>
-        <h3 className="pl-6 pt-6 font-bold 3xl:text-lg cursor-pointer hover:text-[#FD4536]">
+        <h3 className="pl-6 pt-6 font-bold 3xl:text-lg cursor-pointer hover:text-[#FD4536]" onClick={handleLogOut}>
           LOGOUT
         </h3>
       </TabsList>

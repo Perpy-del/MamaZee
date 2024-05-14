@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react'
 import ProductShop from './ProductSection/ProductShop'
 import ProductCarousel from './ProductSection/ProductCarousel'

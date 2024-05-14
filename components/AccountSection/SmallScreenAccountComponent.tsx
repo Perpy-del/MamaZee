@@ -3,10 +3,12 @@ import { FaUser } from 'react-icons/fa';
 import { ShoppingBag } from 'lucide-react';
 import { Heart, MoveRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useMamazeeHook } from '@/hooks/useMamazeeHook';
 
 type Props = {};
 
 const SmallScreenAccountComponent = (props: Props) => {
+  const { handleLogOut, loggedInUser } = useMamazeeHook();
   const router = useRouter();
 
   return (
@@ -47,9 +49,12 @@ const SmallScreenAccountComponent = (props: Props) => {
         </div>
         <MoveRight size={15} />
       </div>
-      <h3 className="pl-6 pt-7 font-bold text-sm cursor-pointer hover:text-[#FD4536]">
+      {loggedInUser ?
+      <h3 className="pl-6 pt-7 font-bold text-sm cursor-pointer text-[#FD4536]" onClick={handleLogOut}>
         LOGOUT
-      </h3>
+      </h3> : <h3 className="pl-6 pt-7 font-bold text-sm cursor-pointer text-mzGold" onClick={() => router.push('/auth/login')}>
+        LOG IN
+      </h3>}
     </div>
   );
 };

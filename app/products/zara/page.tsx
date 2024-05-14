@@ -2,13 +2,13 @@
 
 import * as React from 'react';
 import ProductCategory from '@/components/ProductCategory';
+import ProductComponent from '@/components/ProductSection/ProductComponent';
 
 const ZaraOilPage = () => {
-
   return (
-    <>
-    <ProductCategory productCategory="Zara's Oils" />
-    </>
+    <ProductComponent>
+      <ProductCategory productCategory="Zara's Oils" />
+    </ProductComponent>
   );
 };
 

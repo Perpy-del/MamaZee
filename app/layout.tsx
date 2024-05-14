@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     'Natural and organic hair products to give your hair that shine it needs',
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;

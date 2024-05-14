@@ -2,15 +2,16 @@
 
 import * as React from 'react';
 import ProductCategory from '@/components/ProductCategory';
+import ProductComponent from '@/components/ProductSection/ProductComponent';
 
-type Props = {}
+type Props = {};
 
 const AloeSetPage = (props: Props) => {
   return (
-    <>
-    <ProductCategory productCategory="Aloe Set" />
-    </>
-  )
-}
+    <ProductComponent>
+      <ProductCategory productCategory="Aloe Set" />
+    </ProductComponent>
+  );
+};
 
-export default AloeSetPage
+export default AloeSetPage;

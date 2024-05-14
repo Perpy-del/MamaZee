@@ -1,22 +1,22 @@
 'use client';
 
 import Footer from '@/components/Footer';
-import NavBar from '@/components/HeaderSection/NavBar';
 import ProductCarousel from '@/components/ProductSection/ProductCarousel';
 import Image from 'next/image';
 import React from 'react';
+import HomeNavComponent from '@/components/HeaderSection/NavBarComponents/HomeNavComponent';
 
 type Props = {};
 
 const AboutUsPage = (props: Props) => {
-  
+
   return (
     <div>
-      <div className="bg-mzBlack text-mzLight md:pl-[40px] mdg:pl-20 mdg:pr-14 pb-3">
-        <NavBar />
-      </div>
+      <HomeNavComponent />
       <div className="md:w-[55%] mdl:w-[75%] lg:w-full xl:w-[55%] lg:px-28 xl:px-0 sm:pl-5 sm:pr-6 mx-auto md:py-24 sm:py-8 smd:px-11">
-        <h1 className="md:text-3xl smd:text-2xl sm:text-xl font-extrabold pb-10 3xl:text-4xl">Mamazee Hair Empire</h1>
+        <h1 className="md:text-3xl smd:text-2xl sm:text-xl font-extrabold pb-10 3xl:text-4xl">
+          Mamazee Hair Empire
+        </h1>
         <section className="flex lg:flex-row sm:flex-col gap-5 pb-12">
           <Image
             src="/founder_pic.svg"
@@ -25,7 +25,9 @@ const AboutUsPage = (props: Props) => {
             alt="founder image"
           />
           <div>
-            <h3 className="pb-2 md:text-xl sm:text-lg font-bold 3xl:text-3xl">About Us</h3>
+            <h3 className="pb-2 md:text-xl sm:text-lg font-bold 3xl:text-3xl">
+              About Us
+            </h3>
             <h4 className="font-medium text-justify md:text-base sm:text-[15px] sm:pb-2 3xl:pb-7 3xl:text-xl">
               Our mission centers on enhancing your hair, scalp and overall
               well-being with our products. We aim to enhance your inner beauty
@@ -46,7 +48,9 @@ const AboutUsPage = (props: Props) => {
           </div>
         </section>
         <section>
-          <h3 className="pb-2 text-xl sm:text-lg font-bold 3xl:text-3xl">Who we are</h3>
+          <h3 className="pb-2 text-xl sm:text-lg font-bold 3xl:text-3xl">
+            Who we are
+          </h3>
           <h4 className="font-medium text-justify md:text-base sm:text-[15px] sm:pb-2 3xl:pb-7 3xl:text-xl">
             At Mamazee&apos;s, our journey unfolds through the intertwined
             stories of a mother and her daughter. On my wedding day in 2021, my

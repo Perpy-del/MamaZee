@@ -34,7 +34,7 @@ const ProductCategory = ({ productCategory }: Props) => {
       <div className="pl-10 pb-[50px]">
         <div
           className="flex gap-3 transition-all transform duration-300 ease-in-out text-mzLight items-center pb-7 hover:font-bold hover:text-mzGold cursor-pointer"
-          onClick={() => router.push('/#explore')}
+          onClick={() => router.push('/home/#explore')}
         >
           <MoveLeft size={15} />
           <h3 className="text-sm">Back to Explore Products</h3>
@@ -42,7 +42,7 @@ const ProductCategory = ({ productCategory }: Props) => {
         <h1 className="text-[30px] sm:text-[25px] text-mzLight font-[600]">
           {productCategory}
         </h1>
-        <h4 className="text-mzLight">
+        <h4 className="text-mzLight pr-5">
           Hair products crafted for the best hair results
         </h4>
       </div>

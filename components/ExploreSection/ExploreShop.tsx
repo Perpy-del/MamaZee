@@ -101,6 +101,7 @@ const ExploreShop = (props: Props) => {
                         <Button
                           variant="mzvariant"
                           className="rounded w-[100%] mx-auto"
+                          onClick={() => router.push(card.href)}
                         >
                           {card.prodButton}
                         </Button>

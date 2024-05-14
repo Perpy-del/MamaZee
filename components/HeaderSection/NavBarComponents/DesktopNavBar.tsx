@@ -9,7 +9,7 @@ import HomeDropdownComponent from './HomeDropdownComponent';
 
 type Props = {};
 
-const DesktopNavBar = async(props: Props) => {
+const DesktopNavBar = (props: Props) => {
   const pathname = usePathname()
 
   return (

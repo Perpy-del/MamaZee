@@ -3,15 +3,18 @@
 import React from 'react';
 import { MoveRight } from 'lucide-react';
 import Link from 'next/link';
-import { navData } from '../data';
+import { navHomeData } from '../data';
 import { IoMdCart } from 'react-icons/io';
 import MenuCloseIcon from './LeftSideNav';
 import { usePathname, useRouter } from 'next/navigation';
 import { HomeAccordionDesktop } from './HomeAccordionDesktop';
+import { useMamazeeHook } from '@/hooks/useMamazeeHook';
 
 type Props = {};
 
-const MobileNavBar = (props: Props) => {
+const HomeMobileNav = (props: Props) => {
+  const { handleLogOut, loggedInUser } = useMamazeeHook();
+
   const pathname = usePathname();
 
   const router = useRouter();
@@ -33,19 +36,22 @@ const MobileNavBar = (props: Props) => {
   }, [showNav]);
 
   return (
-    <div className="overflow-hidden">
+    <div>
       {/* MOBILE DEVICES */}
       <>
         <div className="md:hidden flex items-center relative justify-between px-[20px] transition-transform duration-500">
           <MenuCloseIcon showNav={showNav} setShowNav={setShowNav} />
-          <IoMdCart className="text-mzGold sm:text-[25px] smd:text-[30px] cursor-pointer" onClick={() => router.push('/cart')} />
+          <IoMdCart
+            className="text-mzGold sm:text-[25px] smd:text-[30px] cursor-pointer"
+            onClick={() => router.push('/cart')}
+          />
         </div>
       </>
 
       {/* Nav Items themselves */}
       {showNav && (
         <div className="md:hidden sm:flex flex-col w-full gap-10 px-[20px] h-screen pt-20">
-          {navData.map((data: any, index: number) => (
+          {navHomeData.map((data: any, index: number) => (
             <React.Fragment key={index}>
               {pathname === data.link ? (
                 <Link href={data.link}>
@@ -65,15 +71,24 @@ const MobileNavBar = (props: Props) => {
             </React.Fragment>
           ))}
           <HomeAccordionDesktop />
-          <Link href="/auth/login">
-            <h4 className="bg-mzGold text-white rounded px-4 py-2.5 text-center mt-10">
-              Log in
+          {loggedInUser ? (
+            <h4
+              className="bg-[#FD4536] text-white font-bold rounded px-4 py-2.5 text-center mt-8"
+              onClick={handleLogOut}
+            >
+              LOG OUT
             </h4>
-          </Link>
+          ) : (
+            <Link href="/auth/login">
+              <h4 className="bg-mzGold text-white rounded px-4 py-2.5 text-center mt-10">
+                Log in
+              </h4>
+            </Link>
+          )}
         </div>
       )}
     </div>
   );
 };
 
-export default MobileNavBar;
+export default HomeMobileNav;

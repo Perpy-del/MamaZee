@@ -21,7 +21,7 @@ export function AccountDropdownComponent() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <span className="flex relative h-7 overflow-x-hidden group cursor-pointer">
+        <div className="flex relative h-7 overflow-x-hidden group cursor-pointer">
           <div
             className={`flex items-center gap-2 ${
               pathname === '/account'
@@ -33,7 +33,7 @@ export function AccountDropdownComponent() {
             <h4>Account</h4>
           </div>
           <span className="absolute w-[100%] h-[2px] bg-mzGold left-0 bottom-0 -translate-x-[110%] group-hover:translate-x-0 transition-transform duration-500"></span>
-        </span>
+        </div>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="md:w-36 lg:w-40 rounded">
         <DropdownMenuLabel>
