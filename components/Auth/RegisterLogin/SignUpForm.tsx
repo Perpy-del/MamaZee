@@ -55,8 +55,8 @@ const RegisterLogin = () => {
       <FormComponent
         topText="Let’s get you started."
         bottomText="Sign up on Mamazee"
-        buttonText={'Sign up'}
-        handleSubmit={handleRegisterUser}
+        // buttonText={'Sign up'}
+        // handleSubmit={handleRegisterUser}
       >
         <div>
           <div className="lg:mt-[25px] md:mt-[10px] sm:mt-[10px] sm:w-[85vw] md:w-[41vw] xl:w-[400px] mdg:w-[33vw] lg:w-[35vw] mdm:w-[89vw] mdl:w-[80vw] xxl:w-[31vw]">
@@ -157,7 +157,8 @@ const RegisterLogin = () => {
                   ? 'bg-mzGold font-bold text-mzLight hover:bg-[#daab2d] cursor-pointer'
                   : 'text-mzLight font-bold bg-[#555249] hover:bg-[#555249] cursor-no-drop'
               }`}
-              type="submit"
+              onClick={handleRegisterUser}
+              // type="submit"
             >
               Sign up{' '}
               {loading && (

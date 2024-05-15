@@ -19,13 +19,13 @@ import IconButton from '@mui/material/IconButton';
 import { AlertTriangle } from 'lucide-react';
 // import { LoginRegisterInterface } from '@/interfaces/loginInterface';
 import FormComponent from '@/components/Auth/RegisterLogin/Form';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { useMamazeeHook } from '@/hooks/useMamazeeHook';
 
 const RegisterLogin = () => {
   const {email, password, handleEmail, handlePassword, handleLoginUser, isEmailValid, isPasswordValid, loading} = useMamazeeHook();
 
-  const router = useRouter();
+  // const router = useRouter();
   const outerTheme = useTheme();
 
   const [showPassword, setShowPassword] = React.useState<boolean>(false);
@@ -53,7 +53,8 @@ const RegisterLogin = () => {
       </Link>
 
       {/* Login form */}
-      <FormComponent topText="It's nice to see you again." bottomText="Log in to Mamazee" buttonText={'Log in'} handleSubmit={handleLoginUser}>
+      {/* <FormComponent topText="It's nice to see you again." bottomText="Log in to Mamazee" buttonText={'Log in'} handleSubmit={handleLoginUser}> */}
+      <FormComponent topText="It's nice to see you again." bottomText="Log in to Mamazee">
       <div>
           <div className="lg:mt-[25px] md:mt-[10px] sm:mt-[10px] sm:w-[85vw] md:w-[41vw] xl:w-[400px] mdg:w-[33vw] lg:w-[35vw] mdm:w-[89vw] mdl:w-[80vw] xxl:w-[31vw]">
             <ThemeProvider theme={customTheme(outerTheme)}>
@@ -153,7 +154,8 @@ const RegisterLogin = () => {
                 ? 'bg-mzGold font-bold text-mzLight hover:bg-[#daab2d] cursor-pointer'
                 : 'text-mzLight font-bold bg-[#555249] hover:bg-[#555249] cursor-no-drop'
             }`}
-            type="submit"
+            onClick={handleLoginUser}
+            // type="submit"
           >
             Log in{' '}
               {loading && (

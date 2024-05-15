@@ -9,9 +9,9 @@ const FormComponent = (props: LoginRegisterInterface) => {
   const { handleLoginWithProvider, providerLoading } = useMamazeeHook();
 
   return (
-    <form
+    <div
       className="flex flex-col mdg:pl-[50px] lg:pl-[0px] xl:pl-[50px] sm:pl-[10px] sm:w-full items-start mdg:pr-[50px] xl:w-[90%] 2xl:w-[87%] 2xl:pl-[150px]"
-      onSubmit={props.handleSubmit}
+      // onSubmit={props.handleSubmit}
     >
       {/* Top */}
       <>
@@ -57,7 +57,7 @@ const FormComponent = (props: LoginRegisterInterface) => {
       </div>
       {/* Bottom */}
       {props.children}
-    </form>
+    </div>
   );
 };
 

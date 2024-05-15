@@ -70,8 +70,8 @@ const MamazeeContextProvider = ({
     setResetPasswordActive(validatePassword(inputPassword));
   };
 
-  const handleRegisterUser = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleRegisterUser = async () => {
+    // e.preventDefault();
     if (email === '' || password === '') {
       toast({
         variant: 'destructive',
@@ -175,8 +175,9 @@ const MamazeeContextProvider = ({
     }
   };
 
-  const handleLoginUser = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  // const handleLoginUser = async (e: FormEvent<HTMLFormElement>) => {
+  const handleLoginUser = async () => {
+    // e.preventDefault();
 
     if (email === '' || password === '') {
       toast({
