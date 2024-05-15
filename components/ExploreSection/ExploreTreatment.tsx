@@ -1,11 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
+'use client';
+
 import React from 'react'
 import { Button } from '../ui/button'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import { useMamazeeHook } from '@/hooks/useMamazeeHook';
 
 type Props = {}
 
 const ExploreTreatment = (props: Props) => {
+  const {loggedInUser} = useMamazeeHook();
+  const router = useRouter();
+
+  const handleShopButton = () => {
+    loggedInUser ? router.push('/home/#explore') : router.push('/auth/login')
+  }
+
   return (
     <div className='py-[90px] md:py-[20px] px-[50px]  sm:px-[20px] flex flex-wrap justify-center items-center 3xl:px-[240px]'>
       <Image src='/explore_tm_one.svg' alt='explore_treatment card' className='md:hidden smd:w-[290px] mdl:w-[500px] mdg:flex mdg:w-[265px] lg:w-[280px] xl:w-[33%]' width={500} height={500} priority />

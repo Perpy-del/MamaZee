@@ -28,27 +28,25 @@ const FormComponent = (props: LoginRegisterInterface) => {
                 className="md:bg-mzTextBlack sm:bg-mzBlack border border-[#504E48] border-solid rounded md:w-[95px] sm:w-1/4 h-[40px] md:hover:bg-mzBlack inline-flex items-center justify-center cursor-pointer"
                 title={`Log in with ${data.title}`}
               >
-                {providerLoading ? (
-                  <CircularProgress
-                    style={{ color: '#FFF' }}
-                    size={20}
+                <button onClick={() => handleLoginWithProvider(data.name)}>
+                  <Image
+                    src={data.image}
+                    alt={data.name}
+                    width={data.size}
+                    height={data.size}
+                    priority
                   />
-                ) : (
-                  <button onClick={() => handleLoginWithProvider(data.name)}>
-                    <Image
-                      src={data.image}
-                      alt={data.name}
-                      width={data.size}
-                      height={data.size}
-                      priority
-                    />
-                  </button>
-                )}
+                </button>
               </div>
             );
           })}
         </div>
       </>
+      {providerLoading && (
+        <div className='w-full flex items-center justify-center mt-5'>
+        <CircularProgress style={{ color: '#FFF' }} size={30} />
+        </div>
+      )}
       {/* OR */}
       <div
         className={`w-full flex items-center justify-between md:mt-[30px] lg:mt-[45px] sm:mt-[30px] xxl:mt-[100px]`}

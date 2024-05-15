@@ -14,6 +14,14 @@ export function HomeAccordionDesktop() {
   const pathname = usePathname();
   const router = useRouter();
 
+  const handleAccountNavigation = (link: string) => {
+    if (loggedInUser) {
+      router.push(`/account/${link}`);
+    } else {
+      router.push('/auth/login');
+    }
+  };
+
   return (
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
@@ -33,7 +41,7 @@ export function HomeAccordionDesktop() {
         <AccordionContent>
           <div
             className="flex items-center justify-between border-b border-[#504E48]"
-            onClick={() => router.push('/account/acct')}
+            onClick={() => handleAccountNavigation('acct')}
           >
             <div className="flex gap-5 items-center py-3 cursor-pointer">
               <FaUser size={20} />
@@ -43,7 +51,7 @@ export function HomeAccordionDesktop() {
           </div>
           <div
             className="flex items-center justify-between border-b border-[#504E48]"
-            onClick={() => router.push('/account/order')}
+            onClick={() => handleAccountNavigation('order')}
           >
             <div className="flex gap-5 items-center py-3 cursor-pointer">
               <ShoppingBag size={20} />
@@ -53,7 +61,7 @@ export function HomeAccordionDesktop() {
           </div>
           <div
             className="flex items-center justify-between"
-            onClick={() => router.push('/account/wish')}
+            onClick={() => handleAccountNavigation('wish')}
           >
             <div className="flex gap-5 items-center py-3 cursor-pointer">
               <Heart size={20} />

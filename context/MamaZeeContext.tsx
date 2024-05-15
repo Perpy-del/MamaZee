@@ -125,24 +125,27 @@ const MamazeeContextProvider = ({
   };
 
   const handleLoginWithProvider = async (checkProvider: string) => {
-    setProviderLoading(true);
     let provider: any;
     if (checkProvider === 'Google') {
+      setProviderLoading(true);
       provider = new GoogleAuthProvider();
       provider.setCustomParameters({
         prompt: 'select_account',
       });
     } else if (checkProvider === 'Facebook') {
+      setProviderLoading(true);
       provider = new FacebookAuthProvider();
       provider.setCustomParameters({
         prompt: 'select_account'
       });
     } else if (checkProvider === 'Twitter') {
+      setProviderLoading(true);
       provider = new TwitterAuthProvider();
       provider.setCustomParameters({
         prompt: 'select_account'
       });
     } else if (checkProvider === 'Yahoo') {
+      setProviderLoading(true);
       provider = new OAuthProvider('yahoo.com');
       provider.setCustomParameters({
         prompt: 'login'
