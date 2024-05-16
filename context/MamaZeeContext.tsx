@@ -168,17 +168,27 @@ const MamazeeContextProvider = ({
         });
         router.push('/home');
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
+      if (error.code === "auth/account-exists-with-different-credential") {
+        toast({
+          variant: 'destructive',
+          title: 'Account Already Exists',
+          description:
+            'An account with the same credentials already exists but with a different provider. Kindly log in with the right provider.',
+          action: (
+            <ToastAction className="" altText="Try again">
+              Try again
+            </ToastAction>
+          ),
+        });
+      }
     } finally {
       setProviderLoading(false);
     }
   };
 
-  // const handleLoginUser = async (e: FormEvent<HTMLFormElement>) => {
   const handleLoginUser = async () => {
-    // e.preventDefault();
-
     if (email === '' || password === '') {
       toast({
         variant: 'destructive',
